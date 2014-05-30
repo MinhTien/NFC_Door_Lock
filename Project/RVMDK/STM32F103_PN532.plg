@@ -1,0 +1,1028 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\Sophic\NFC_Door_Clock\Firmware\STM32F103_PN532\Project\RVMDK\STM32F103_PN532.uvproj
+Project File Date:  05/29/2014
+
+<h2>Output:</h2>
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\../Libraries/PN532/PN532.h(8): error:  #5: cannot open source input file "WProgram.h": No such file or directory
+compiling main.c...
+..\../Libraries/PN532/PN532.h(8): error:  #5: cannot open source input file "WProgram.h": No such file or directory
+compiling stm32f10x_it.c...
+compiling misc.c...
+compiling stm32f10x_exti.c...
+compiling stm32f10x_flash.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_usart.c...
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+assembling startup_stm32f10x_md.s...
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(7): error:  #5: cannot open source input file "WProgram.h": No such file or directory
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\../Libraries/PN532/PN532.h(8): error:  #5: cannot open source input file "WProgram.h": No such file or directory
+compiling main.c...
+..\../Libraries/PN532/PN532.h(8): error:  #5: cannot open source input file "WProgram.h": No such file or directory
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.h(8): error:  #5: cannot open source input file "WProgram.h": No such file or directory
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\../Libraries/PN532/PN532.h(40): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(52): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(52): error:  #18: expected a ")"
+..\../Libraries/PN532/PN532.h(56): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(56): warning:  #1295-D: Deprecated declaration spi_readack - give arg types
+..\global.c(330): warning:  #188-D: enumerated type mixed with another type
+..\global.c(338): error:  #20: identifier "insValueStr" is undefined
+..\global.c(339): error:  #20: identifier "aaValueStr" is undefined
+..\global.c(340): error:  #20: identifier "bbValueStr" is undefined
+..\global.c(341): error:  #20: identifier "ccValueStr" is undefined
+..\global.c(342): error:  #20: identifier "nnnValueStr" is undefined
+..\global.c(343): error:  #20: identifier "pppValueStr" is undefined
+..\global.c(344): error:  #20: identifier "secValueStr" is undefined
+..\global.c(345): error:  #20: identifier "minValueStr" is undefined
+..\global.c(346): error:  #20: identifier "hourValueStr" is undefined
+..\global.c(347): error:  #20: identifier "dayValueStr" is undefined
+..\global.c(348): error:  #20: identifier "dateValueStr" is undefined
+..\global.c(349): error:  #20: identifier "monthValueStr" is undefined
+..\global.c(350): error:  #20: identifier "yearValueStr" is undefined
+..\global.c(466): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\global.c(466): error:  #20: identifier "date" is undefined
+..\global.c(469): error:  #20: identifier "pulseCount" is undefined
+..\global.c(473): error:  #20: identifier "pppValue" is undefined
+..\global.c(477): error:  #20: identifier "insValue" is undefined
+..\global.c(483): error:  #20: identifier "insValue" is undefined
+..\global.c(485): warning:  #188-D: enumerated type mixed with another type
+compiling main.c...
+..\../Libraries/PN532/PN532.h(40): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(52): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(52): error:  #18: expected a ")"
+..\../Libraries/PN532/PN532.h(56): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(56): warning:  #1295-D: Deprecated declaration spi_readack - give arg types
+..\main.c(46): error:  #20: identifier "msgReceiveComplete" is undefined
+..\main.c(49): error:  #20: identifier "insValue" is undefined
+..\main.c(49): error:  #20: identifier "insValueStr" is undefined
+..\main.c(53): error:  #20: identifier "insValue" is undefined
+..\main.c(57): error:  #20: identifier "secValue" is undefined
+..\main.c(57): error:  #20: identifier "secValueStr" is undefined
+..\main.c(58): error:  #20: identifier "minValue" is undefined
+..\main.c(58): error:  #20: identifier "minValueStr" is undefined
+..\main.c(59): error:  #20: identifier "hourValue" is undefined
+..\main.c(59): error:  #20: identifier "hourValueStr" is undefined
+..\main.c(60): error:  #20: identifier "dayValue" is undefined
+..\main.c(60): error:  #20: identifier "dayValueStr" is undefined
+..\main.c(61): error:  #20: identifier "dateValue" is undefined
+..\main.c(61): error:  #20: identifier "dateValueStr" is undefined
+..\main.c(62): error:  #20: identifier "monthValue" is undefined
+..\main.c(62): error:  #20: identifier "monthValueStr" is undefined
+..\main.c(63): error:  #20: identifier "yearValue" is undefined
+..\main.c(63): error:  #20: identifier "yearValueStr" is undefined
+..\main.c(65): error:  #20: identifier "i2c_buff_write" is undefined
+..\main.c(65): error:  #20: identifier "DS1307_SECONDS" is undefined
+..\main.c(65): warning:  #223-D: function "dec_2_bcd" declared implicitly
+..\main.c(66): error:  #20: identifier "DS1307_MINUTES" is undefined
+..\main.c(67): error:  #20: identifier "DS1307_HOURS" is undefined
+..\main.c(68): error:  #20: identifier "DS1307_DAY" is undefined
+..\main.c(69): error:  #20: identifier "DS1307_DATE" is undefined
+..\main.c(70): error:  #20: identifier "DS1307_MONTH" is undefined
+..\main.c(71): error:  #20: identifier "DS1307_YEAR" is undefined
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.h(38): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(38): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(38): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(38): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(40): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.h(41): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(42): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(42): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(43): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(43): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(44): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(45): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(46): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(47): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(49): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(49): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(49): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(49): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(50): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(50): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(50): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(50): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(52): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.h(52): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(52): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(52): error:  #20: identifier "uint16_t" is undefined
+..\..\Libraries\PN532\PN532.h(52): error:  #18: expected a ")"
+..\..\Libraries\PN532\PN532.h(54): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(56): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.h(56): warning:  #1295-D: Deprecated declaration spi_readack - give arg types
+..\..\Libraries\PN532\PN532.h(57): error:  #20: identifier "uint8_t" is undefined
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\../Libraries/PN532/PN532.h(40): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(52): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(52): error:  #18: expected a ")"
+..\../Libraries/PN532/PN532.h(56): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(56): warning:  #1295-D: Deprecated declaration spi_readack - give arg types
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+compiling main.c...
+..\../Libraries/PN532/PN532.h(40): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(52): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(52): error:  #18: expected a ")"
+..\../Libraries/PN532/PN532.h(56): error:  #20: identifier "boolean" is undefined
+..\../Libraries/PN532/PN532.h(56): warning:  #1295-D: Deprecated declaration spi_readack - give arg types
+..\main.c(46): error:  #20: identifier "msgReceiveComplete" is undefined
+..\main.c(48): warning:  #223-D: function "ax12ReceivedMsgProcess" declared implicitly
+..\main.c(49): error:  #20: identifier "insValue" is undefined
+..\main.c(49): error:  #20: identifier "insValueStr" is undefined
+..\main.c(53): error:  #20: identifier "insValue" is undefined
+..\main.c(53): error:  #20: identifier "SET_DATETIME" is undefined
+..\main.c(57): error:  #20: identifier "secValue" is undefined
+..\main.c(57): error:  #20: identifier "secValueStr" is undefined
+..\main.c(58): error:  #20: identifier "minValue" is undefined
+..\main.c(58): error:  #20: identifier "minValueStr" is undefined
+..\main.c(59): error:  #20: identifier "hourValue" is undefined
+..\main.c(59): error:  #20: identifier "hourValueStr" is undefined
+..\main.c(60): error:  #20: identifier "dayValue" is undefined
+..\main.c(60): error:  #20: identifier "dayValueStr" is undefined
+..\main.c(61): error:  #20: identifier "dateValue" is undefined
+..\main.c(61): error:  #20: identifier "dateValueStr" is undefined
+..\main.c(62): error:  #20: identifier "monthValue" is undefined
+..\main.c(62): error:  #20: identifier "monthValueStr" is undefined
+..\main.c(63): error:  #20: identifier "yearValue" is undefined
+..\main.c(63): error:  #20: identifier "yearValueStr" is undefined
+..\main.c(65): error:  #20: identifier "i2c_buff_write" is undefined
+..\main.c(65): error:  #20: identifier "DS1307_SECONDS" is undefined
+..\main.c(65): warning:  #223-D: function "dec_2_bcd" declared implicitly
+..\main.c(66): error:  #20: identifier "DS1307_MINUTES" is undefined
+..\main.c(67): error:  #20: identifier "DS1307_HOURS" is undefined
+..\main.c(68): error:  #20: identifier "DS1307_DAY" is undefined
+..\main.c(69): error:  #20: identifier "DS1307_DATE" is undefined
+..\main.c(70): error:  #20: identifier "DS1307_MONTH" is undefined
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.h(38): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(38): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(38): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(38): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(40): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.h(41): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(42): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(42): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(43): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(43): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(44): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(45): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(46): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(47): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(49): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(49): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(49): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(49): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(50): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\PN532\PN532.h(50): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(50): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(50): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(52): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.h(52): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(52): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(52): error:  #20: identifier "uint16_t" is undefined
+..\..\Libraries\PN532\PN532.h(52): error:  #18: expected a ")"
+..\..\Libraries\PN532\PN532.h(54): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\PN532\PN532.h(56): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.h(56): warning:  #1295-D: Deprecated declaration spi_readack - give arg types
+..\..\Libraries\PN532\PN532.h(57): error:  #20: identifier "uint8_t" is undefined
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\../Libraries/PN532/PN532.h(58): warning:  #1295-D: Deprecated declaration spi_readack - give arg types
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+compiling main.c...
+..\../Libraries/PN532/PN532.h(58): warning:  #1295-D: Deprecated declaration spi_readack - give arg types
+..\main.c(46): error:  #20: identifier "msgReceiveComplete" is undefined
+..\main.c(48): warning:  #223-D: function "ax12ReceivedMsgProcess" declared implicitly
+..\main.c(49): error:  #20: identifier "insValue" is undefined
+..\main.c(49): error:  #20: identifier "insValueStr" is undefined
+..\main.c(53): error:  #20: identifier "insValue" is undefined
+..\main.c(53): error:  #20: identifier "SET_DATETIME" is undefined
+..\main.c(57): error:  #20: identifier "secValue" is undefined
+..\main.c(57): error:  #20: identifier "secValueStr" is undefined
+..\main.c(58): error:  #20: identifier "minValue" is undefined
+..\main.c(58): error:  #20: identifier "minValueStr" is undefined
+..\main.c(59): error:  #20: identifier "hourValue" is undefined
+..\main.c(59): error:  #20: identifier "hourValueStr" is undefined
+..\main.c(60): error:  #20: identifier "dayValue" is undefined
+..\main.c(60): error:  #20: identifier "dayValueStr" is undefined
+..\main.c(61): error:  #20: identifier "dateValue" is undefined
+..\main.c(61): error:  #20: identifier "dateValueStr" is undefined
+..\main.c(62): error:  #20: identifier "monthValue" is undefined
+..\main.c(62): error:  #20: identifier "monthValueStr" is undefined
+..\main.c(63): error:  #20: identifier "yearValue" is undefined
+..\main.c(63): error:  #20: identifier "yearValueStr" is undefined
+..\main.c(65): error:  #20: identifier "i2c_buff_write" is undefined
+..\main.c(65): error:  #20: identifier "DS1307_SECONDS" is undefined
+..\main.c(65): warning:  #223-D: function "dec_2_bcd" declared implicitly
+..\main.c(66): error:  #20: identifier "DS1307_MINUTES" is undefined
+..\main.c(67): error:  #20: identifier "DS1307_HOURS" is undefined
+..\main.c(68): error:  #20: identifier "DS1307_DAY" is undefined
+..\main.c(69): error:  #20: identifier "DS1307_DATE" is undefined
+..\main.c(70): error:  #20: identifier "DS1307_MONTH" is undefined
+..\main.c(71): error:  #20: identifier "DS1307_YEAR" is undefined
+..\main.c(72): error:  #20: identifier "DS1307_CONTROL" is undefined
+..\main.c(74): warning:  #223-D: function "ds1307_writeBlockData" declared implicitly
+..\main.c(74): error:  #20: identifier "DS1307_ADDRESS" is undefined
+..\main.c(76): error:  #20: identifier "READ_DATA" is undefined
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.h(58): warning:  #1295-D: Deprecated declaration spi_readack - give arg types
+..\..\Libraries\PN532\PN532.c(11): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(12): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(15): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(23): warning:  #223-D: function "pinMode" declared implicitly
+..\..\Libraries\PN532\PN532.c(23): error:  #20: identifier "OUTPUT" is undefined
+..\..\Libraries\PN532\PN532.c(26): error:  #20: identifier "INPUT" is undefined
+..\..\Libraries\PN532\PN532.c(30): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(30): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(32): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(36): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(46): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(52): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(69): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(80): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(82): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(87): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(96): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(98): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(101): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(104): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(110): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(111): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(144): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(145): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(168): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(183): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(184): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(192): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(192): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(192): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(201): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(217): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(217): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(217): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(222): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(223): error:  #20: identifier "false" is undefined
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+compiling main.c...
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(11): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(12): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(15): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(23): warning:  #223-D: function "pinMode" declared implicitly
+..\..\Libraries\PN532\PN532.c(23): error:  #20: identifier "OUTPUT" is undefined
+..\..\Libraries\PN532\PN532.c(26): error:  #20: identifier "INPUT" is undefined
+..\..\Libraries\PN532\PN532.c(30): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(30): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(32): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(36): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(46): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(52): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(69): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(80): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(82): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(87): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(96): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(98): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(101): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(104): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(110): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(111): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(144): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(145): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(168): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(183): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(184): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(192): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(192): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(192): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(201): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(217): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(217): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(217): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(222): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(223): error:  #20: identifier "false" is undefined
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(23): warning:  #223-D: function "pinMode" declared implicitly
+..\..\Libraries\PN532\PN532.c(23): error:  #20: identifier "OUTPUT" is undefined
+..\..\Libraries\PN532\PN532.c(26): error:  #20: identifier "INPUT" is undefined
+..\..\Libraries\PN532\PN532.c(30): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(30): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(32): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(36): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(46): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(52): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(69): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(80): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(82): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(87): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(96): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(98): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(101): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(104): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(110): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(111): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(144): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(145): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(168): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(183): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(184): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(192): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(192): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(192): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(201): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(217): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(217): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(217): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(222): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(223): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(238): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(253): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(260): error:  #20: identifier "Serial" is undefined
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+compiling main.c...
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(63): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(73): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(79): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(96): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(107): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(109): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(114): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(123): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(125): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(128): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(131): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(137): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(138): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(171): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(172): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(195): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(210): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(211): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(219): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(219): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(219): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(228): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(244): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(244): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(244): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(249): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(250): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(265): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(280): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(287): error:  #20: identifier "Serial" is undefined
+..\..\Libraries\PN532\PN532.c(287): error:  #20: identifier "DEC" is undefined
+..\..\Libraries\PN532\PN532.c(291): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(294): error:  #20: identifier "HEX" is undefined
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+compiling main.c...
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(60): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(70): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(76): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(93): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(104): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(106): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(111): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(120): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(122): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(125): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(128): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(134): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(135): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(168): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(169): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(192): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(207): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(208): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(216): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(216): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(216): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(225): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(241): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(241): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(241): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(246): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(247): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(262): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(277): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(284): error:  #20: identifier "Serial" is undefined
+..\..\Libraries\PN532\PN532.c(284): error:  #20: identifier "DEC" is undefined
+..\..\Libraries\PN532\PN532.c(288): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(291): error:  #20: identifier "HEX" is undefined
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(60): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(69): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(75): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(92): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(103): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(105): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(110): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(119): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(121): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(124): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(127): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(133): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(134): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(167): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(168): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(191): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(206): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(207): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(215): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(215): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(215): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(224): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(240): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(240): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(240): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(245): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(246): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(261): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(276): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(283): error:  #20: identifier "Serial" is undefined
+..\..\Libraries\PN532\PN532.c(283): error:  #20: identifier "DEC" is undefined
+..\..\Libraries\PN532\PN532.c(287): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(290): error:  #20: identifier "HEX" is undefined
+Target not created
+Clean started: Project: 'STM32F103_PN532'
+   deleting intermediate output files for target 'NFC_DOOR_LOCK'
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+compiling main.c...
+compiling stm32f10x_it.c...
+compiling misc.c...
+compiling stm32f10x_exti.c...
+compiling stm32f10x_flash.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_usart.c...
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+assembling startup_stm32f10x_md.s...
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(69): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(75): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(92): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(103): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(105): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(110): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(119): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(121): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(124): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(127): error:  #20: identifier "boolean" is undefined
+..\..\Libraries\PN532\PN532.c(133): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(134): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(167): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(168): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(191): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(206): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(207): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(215): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(215): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(215): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(224): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(240): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(240): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(240): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(245): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(246): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(261): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(276): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(283): error:  #20: identifier "Serial" is undefined
+..\..\Libraries\PN532\PN532.c(283): error:  #20: identifier "DEC" is undefined
+..\..\Libraries\PN532\PN532.c(287): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(290): error:  #20: identifier "HEX" is undefined
+..\..\Libraries\PN532\PN532.c(293): error:  #254: type name is not allowed
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(69): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(75): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(103): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(105): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(110): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(119): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(121): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(124): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(133): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(134): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(167): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(168): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(191): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(206): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(207): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(215): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(215): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(215): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(224): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(240): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(240): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(240): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(245): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(246): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(261): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(276): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(283): error:  #20: identifier "Serial" is undefined
+..\..\Libraries\PN532\PN532.c(283): error:  #20: identifier "DEC" is undefined
+..\..\Libraries\PN532\PN532.c(287): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(290): error:  #20: identifier "HEX" is undefined
+..\..\Libraries\PN532\PN532.c(293): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(293): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(293): error:  #20: identifier "i" is undefined
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(69): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(75): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(104): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(120): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(166): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(167): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(190): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(205): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(206): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(214): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(214): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(214): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(223): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(239): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(239): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(239): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(244): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(245): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(260): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(275): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(282): error:  #20: identifier "Serial" is undefined
+..\..\Libraries\PN532\PN532.c(282): error:  #20: identifier "DEC" is undefined
+..\..\Libraries\PN532\PN532.c(286): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(289): error:  #20: identifier "HEX" is undefined
+..\..\Libraries\PN532\PN532.c(292): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(292): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(292): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(317): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(323): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(323): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(324): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(327): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(331): error:  #20: identifier "HIGH" is undefined
+..\..\Libraries\PN532\PN532.c(336): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(336): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(337): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(343): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(343): error:  #65: expected a ";"
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(75): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(104): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(120): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(166): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(167): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(190): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(205): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(206): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(214): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(214): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(214): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(223): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(239): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(239): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(239): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(244): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(245): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(260): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(275): error:  #165: too few arguments in function call
+..\..\Libraries\PN532\PN532.c(282): error:  #20: identifier "Serial" is undefined
+..\..\Libraries\PN532\PN532.c(282): error:  #20: identifier "DEC" is undefined
+..\..\Libraries\PN532\PN532.c(286): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(289): error:  #20: identifier "HEX" is undefined
+..\..\Libraries\PN532\PN532.c(292): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(292): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(292): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(317): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(323): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(323): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(324): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(327): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(331): error:  #20: identifier "HIGH" is undefined
+..\..\Libraries\PN532\PN532.c(336): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(336): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(337): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(343): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(343): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(343): error:  #20: identifier "i" is undefined
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(75): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(104): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(120): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(167): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(190): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(206): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(214): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(214): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(214): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(223): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(239): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(239): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(239): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(245): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(260): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(282): error:  #20: identifier "Serial" is undefined
+..\..\Libraries\PN532\PN532.c(282): error:  #20: identifier "DEC" is undefined
+..\..\Libraries\PN532\PN532.c(286): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(289): error:  #20: identifier "HEX" is undefined
+..\..\Libraries\PN532\PN532.c(292): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(292): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(292): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(317): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(323): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(323): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(324): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(327): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(331): error:  #20: identifier "HIGH" is undefined
+..\..\Libraries\PN532\PN532.c(336): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(336): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(337): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(343): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(343): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(343): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(356): error:  #20: identifier "HIGH" is undefined
+..\..\Libraries\PN532\PN532.c(368): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(368): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(369): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(378): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(393): error:  #254: type name is not allowed
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+compiling main.c...
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(75): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(104): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(120): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(167): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(190): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(206): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(214): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(214): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(214): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(223): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(239): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(239): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(239): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(245): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(260): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(286): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(292): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(292): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(292): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(317): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(324): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(327): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(335): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(341): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(341): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(341): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(367): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(376): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(391): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(391): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(391): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(398): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(414): warning:  #223-D: function "digitalWrite" declared implicitly
+..\..\Libraries\PN532\PN532.c(414): error:  #20: identifier "HIGH" is undefined
+..\..\Libraries\PN532\PN532.c(418): warning:  #223-D: function "_BV" declared implicitly
+..\..\Libraries\PN532\PN532.c(421): error:  #20: identifier "LOW" is undefined
+..\..\Libraries\PN532\PN532.c(426): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(429): error:  #20: identifier "Address" is undefined
+..\..\Libraries\PN532\PN532.c(430): warning:  #223-D: function "SPI_WriteByte" declared implicitly
+..\..\Libraries\PN532\PN532.c(431): error:  #20: identifier "value" is undefined
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(75): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(104): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(120): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(167): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(190): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(206): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(214): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(214): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(214): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(223): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(239): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(239): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(239): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(245): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(260): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(286): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(292): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(292): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(292): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(317): warning:  #223-D: function "strncmp" declared implicitly
+..\..\Libraries\PN532\PN532.c(324): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(327): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(335): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(341): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(341): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(341): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(367): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(376): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(391): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(391): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(391): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(398): error:  #268: declaration may not appear after executable statement in block
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(105): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(121): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(168): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(191): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(207): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(215): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(215): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(215): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(224): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(240): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(240): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(240): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(246): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(261): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(287): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(293): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(293): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(293): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(325): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(328): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(336): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(342): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(342): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(342): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(368): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(377): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(392): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(392): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(392): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(399): error:  #268: declaration may not appear after executable statement in block
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(121): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(168): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(191): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(207): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(215): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(215): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(215): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(224): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(240): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(240): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(240): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(246): error:  #20: identifier "false" is undefined
+..\..\Libraries\PN532\PN532.c(261): error:  #20: identifier "true" is undefined
+..\..\Libraries\PN532\PN532.c(287): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(293): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(293): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(293): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(325): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(328): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(336): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(342): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(342): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(342): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(368): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(377): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(392): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(392): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(392): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(399): error:  #268: declaration may not appear after executable statement in block
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(240): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(240): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(240): error:  #20: identifier "byte" is undefined
+..\..\Libraries\PN532\PN532.c(287): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(293): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(293): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(293): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(326): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(337): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(343): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(343): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(343): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(369): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(378): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(393): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(393): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(393): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(400): error:  #268: declaration may not appear after executable statement in block
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(288): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(294): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(294): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(294): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(327): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(338): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(344): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(344): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(344): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(370): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(379): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(394): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(394): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(394): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(401): error:  #268: declaration may not appear after executable statement in block
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(295): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(295): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(295): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(328): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(339): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(345): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(345): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(345): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(371): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(380): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(395): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(395): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(395): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(402): error:  #268: declaration may not appear after executable statement in block
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(328): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(339): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(345): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(345): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(345): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(371): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(380): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(395): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(395): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(395): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(402): error:  #268: declaration may not appear after executable statement in block
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(345): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(345): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(345): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(371): warning:  #223-D: function "delay" declared implicitly
+..\..\Libraries\PN532\PN532.c(380): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(395): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(395): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(395): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(402): error:  #268: declaration may not appear after executable statement in block
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+..\..\Libraries\PN532\PN532.c(381): error:  #268: declaration may not appear after executable statement in block
+..\..\Libraries\PN532\PN532.c(396): error:  #254: type name is not allowed
+..\..\Libraries\PN532\PN532.c(396): error:  #65: expected a ";"
+..\..\Libraries\PN532\PN532.c(396): error:  #20: identifier "i" is undefined
+..\..\Libraries\PN532\PN532.c(403): error:  #268: declaration may not appear after executable statement in block
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling PN532.c...
+linking...
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _ss multiply defined (by main.o and global.o).
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _ss multiply defined (by pn532.o and global.o).
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _clk multiply defined (by main.o and global.o).
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _clk multiply defined (by pn532.o and global.o).
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _mosi multiply defined (by main.o and global.o).
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _mosi multiply defined (by pn532.o and global.o).
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _miso multiply defined (by main.o and global.o).
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _miso multiply defined (by pn532.o and global.o).
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling main.c...
+linking...
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _ss multiply defined (by pn532.o and global.o).
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _clk multiply defined (by pn532.o and global.o).
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _mosi multiply defined (by pn532.o and global.o).
+.\Obj\STM32F103_PN532.axf: Error: L6200E: Symbol _miso multiply defined (by pn532.o and global.o).
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+compiling PN532.c...
+linking...
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol TIM_ClearITPendingBit (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol TIM_ClearOC1Ref (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol TIM_Cmd (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol TIM_GetITStatus (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol TIM_SetCompare1 (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol TIM_SetCounter (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol msgReceiveComplete (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol pppValue (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol pulseCount (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol time_update (referred from stm32f10x_it.o).
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling stm32f10x_tim.c...
+linking...
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol msgReceiveComplete (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol pppValue (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol pulseCount (referred from stm32f10x_it.o).
+.\Obj\STM32F103_PN532.axf: Error: L6218E: Undefined symbol time_update (referred from stm32f10x_it.o).
+Target not created
+Build target 'NFC_DOOR_LOCK'
+compiling stm32f10x_it.c...
+linking...
+Program Size: Code=7240 RO-data=268 RW-data=40 ZI-data=1024  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 0 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+linking...
+Program Size: Code=7240 RO-data=268 RW-data=40 ZI-data=1024  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 0 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+linking...
+Program Size: Code=7240 RO-data=268 RW-data=40 ZI-data=1024  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 0 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+compiling main.c...
+linking...
+Program Size: Code=7208 RO-data=268 RW-data=40 ZI-data=1024  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 1 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+linking...
+Program Size: Code=7208 RO-data=268 RW-data=40 ZI-data=1024  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 1 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+..\global.c(252): warning:  #188-D: enumerated type mixed with another type
+linking...
+Program Size: Code=7208 RO-data=268 RW-data=40 ZI-data=1024  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 1 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+compiling main.c...
+linking...
+Program Size: Code=7196 RO-data=268 RW-data=40 ZI-data=1024  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 0 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+compiling main.c...
+..\main.c(25): warning:  #177-D: variable "loopCount" was declared but never referenced
+linking...
+Program Size: Code=8116 RO-data=268 RW-data=44 ZI-data=1028  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 1 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+compiling main.c...
+linking...
+Program Size: Code=8116 RO-data=268 RW-data=44 ZI-data=1028  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 0 Warning(s).

@@ -1,0 +1,5 @@
+--cpu Cortex-M3 ".\obj\global.o" ".\obj\main.o" ".\obj\stm32f10x_it.o" ".\obj\misc.o" ".\obj\stm32f10x_exti.o" ".\obj\stm32f10x_flash.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_rcc.o" ".\obj\stm32f10x_spi.o" ".\obj\stm32f10x_usart.o" ".\obj\core_cm3.o" ".\obj\system_stm32f10x.o" ".\obj\startup_stm32f10x_md.o" ".\obj\pn532.o" 
+--library_type=microlib --strict --scatter ".\Obj\STM32F103_PN532.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\List\STM32F103_PN532.map" -o .\Obj\STM32F103_PN532.axf
