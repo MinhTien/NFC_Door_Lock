@@ -25,7 +25,7 @@
 ### ADS-LD Output File: '.\Obj\STM32F103_PN532.axf'
 ### ADS-LD Command File: '.\Obj\STM32F103_PN532.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\Obj\STM32F103_PN532.lnp', Handle=0x000006D4
+### Creating CmdFile '.\Obj\STM32F103_PN532.lnp', Handle=0x0000025C
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\Obj\STM32F103_PN532.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

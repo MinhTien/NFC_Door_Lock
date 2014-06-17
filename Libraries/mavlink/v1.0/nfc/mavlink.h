@@ -1,5 +1,5 @@
 /** @file
- *	@brief MAVLink comm protocol built from mavGmotorTesterSC.xml
+ *	@brief MAVLink comm protocol built from nfc.xml
  *	@see http://pixhawk.ethz.ch/software/mavlink
  */
 #ifndef MAVLINK_H
@@ -22,6 +22,6 @@
 #endif
 
 #include "version.h"
-#include "mavGmotorTesterSC.h"
+#include "nfc.h"
 
 #endif // MAVLINK_H
