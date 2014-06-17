@@ -31,5 +31,5 @@
 .\Obj\main.o: ..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\Obj\main.o: ..\global.h
 .\Obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
-.\Obj\main.o: ..\..\Libraries\PN532\PN532.h
 .\Obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\Obj\main.o: ..\..\Libraries\Adafruit_PN532\Adafruit_PN532.h

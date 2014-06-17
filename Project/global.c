@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "string.h"
-#include "PN532.h"
 
 PUTCHAR_PROTOTYPE
 {
@@ -112,13 +111,15 @@ void RCC_Configuration(void)
 	}
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB | RCC_APB2Periph_USART1 | RCC_APB2Periph_SPI1 | RCC_APB2Periph_AFIO, ENABLE);
+
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 }
 
 void GPIO_Configuration(void)
 {  
 	GPIO_InitTypeDef GPIO_InitStructure;
 	
-	GPIO_PinRemapConfig(GPIO_Remap_SWJ_NoJTRST, ENABLE);
+// 	GPIO_PinRemapConfig(GPIO_Remap_SWJ_NoJTRST, ENABLE);
 	/*------------------------------------------
 	PA.3 (RST)    -->   MFRC522's RST Pin
 	PA.4 (NSS)    -->   MFRC522's SDA Pin
@@ -126,7 +127,23 @@ void GPIO_Configuration(void)
 	PA.6 (MISO)   -->   MFRC522's MISO Pin
 	PA.7 (MOSI)   -->   MFRC522's MOSI Pin
 	-------------------------------------------*/
-  	/* PA.8 for Buzzer */
+	/* PA.1 for Relay A control */
+	GPIO_InitStructure.GPIO_Pin = RELAY_A_PIN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
+	GPIO_Init(RELAY_A_PORT, &GPIO_InitStructure);
+	
+	GPIO_ResetBits(RELAY_A_PORT, RELAY_A_PIN); 
+	
+	/* PA.2 for Relay A control */
+	GPIO_InitStructure.GPIO_Pin = RELAY_B_PIN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
+	GPIO_Init(RELAY_B_PORT, &GPIO_InitStructure);
+	
+	GPIO_ResetBits(RELAY_B_PORT, RELAY_B_PIN); 
+	
+	/* PA.0 for Buzzer */
 	GPIO_InitStructure.GPIO_Pin = BUZZER_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
@@ -138,7 +155,7 @@ void GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
 	GPIO_Init(LED_PORT, &GPIO_InitStructure);
 	
-	Led(Bit_SET); // ON
+	Led(Bit_RESET); // OFF
 	Buzzer(Bit_RESET);
 	
 	/* SPI NSS Pin */
@@ -149,10 +166,22 @@ void GPIO_Configuration(void)
 	
 	GPIO_SetBits(SPI1_NSS_PORT, SPI1_NSS_PIN); // desellect chip
 	
-	/* SPI SCK, MOSI, MOSI Pin */
-	GPIO_InitStructure.GPIO_Pin = SPI1_SCK_PIN | SPI1_MOSI_PIN | SPI1_MISO_PIN;
+	/* PWM output Pin */
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;	 
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+	/* SPI SCK, MOSI Pins */
+	GPIO_InitStructure.GPIO_Pin = SPI1_SCK_PIN | SPI1_MOSI_PIN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
+	GPIO_Init(SPI1_PORT, &GPIO_InitStructure);
+	
+	/* SPI MISO Pin */
+	GPIO_InitStructure.GPIO_Pin = SPI1_MISO_PIN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;	 
 	GPIO_Init(SPI1_PORT, &GPIO_InitStructure);
 	
 	/* Configure PA9 for USART1 Tx as alternate function push-pull */
@@ -222,6 +251,31 @@ void SPI_Configuration(void)
 	SPI_Cmd(SPI1, ENABLE);
 }
 
+void TIM_Configuration(void)
+{
+	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+	TIM_OCInitTypeDef  TIM_OCInitStructure;
+	
+	/* Time base configuration */
+	TIM_TimeBaseStructure.TIM_Period = 2999;	  //TIM2 frequency is 400Hz
+	TIM_TimeBaseStructure.TIM_Prescaler = 35;		 //clock for TIM2 is 1 MHz
+	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+	
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+	TIM_OCInitStructure.TIM_Pulse = 500;		//999			   
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+	TIM_OC4Init(TIM2, &TIM_OCInitStructure);
+	
+	TIM_OC4PreloadConfig(TIM2, TIM_OCPreload_Enable);
+	TIM_ARRPreloadConfig(TIM2, ENABLE);
+	
+// 	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+	TIM_SetCounter(TIM2, 0);
+ 	TIM_Cmd(TIM2, ENABLE);
+}
 void EXTI_Configuration(void)
 {
 	EXTI_InitTypeDef EXTI_InitStructure;
@@ -236,12 +290,12 @@ void EXTI_Configuration(void)
 
 void Led(BitAction cmd)
 {
-	GPIO_WriteBit(LED_PORT, LED_PIN, cmd);
+	GPIO_WriteBit(LED_PORT, LED_PIN, (BitAction)cmd);
 }
 
 void Buzzer(BitAction cmd)
 {
-	GPIO_WriteBit(BUZZER_PORT, BUZZER_PIN, 1-cmd);
+	GPIO_WriteBit(BUZZER_PORT, BUZZER_PIN, (BitAction)(1-cmd));
 }
 
 /*----------------------------------------------------------------------------

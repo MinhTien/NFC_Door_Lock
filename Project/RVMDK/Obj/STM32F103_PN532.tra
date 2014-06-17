@@ -11,12 +11,13 @@
 ### List of Objects: adding '".\obj\stm32f10x_rcc.o"'
 ### List of Objects: adding '".\obj\stm32f10x_spi.o"'
 ### List of Objects: adding '".\obj\stm32f10x_usart.o"'
+### List of Objects: adding '".\obj\stm32f10x_tim.o"'
 ### List of Objects: adding '".\obj\core_cm3.o"'
 ### List of Objects: adding '".\obj\system_stm32f10x.o"'
 ### List of Objects: adding '".\obj\startup_stm32f10x_md.o"'
-### List of Objects: adding '".\obj\pn532.o"'
+### List of Objects: adding '".\obj\adafruit_pn532.o"'
 ### ADS-LD Command completed:
---cpu Cortex-M3 ".\obj\global.o" ".\obj\main.o" ".\obj\stm32f10x_it.o" ".\obj\misc.o" ".\obj\stm32f10x_exti.o" ".\obj\stm32f10x_flash.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_rcc.o" ".\obj\stm32f10x_spi.o" ".\obj\stm32f10x_usart.o" ".\obj\core_cm3.o" ".\obj\system_stm32f10x.o" ".\obj\startup_stm32f10x_md.o" ".\obj\pn532.o" 
+--cpu Cortex-M3 ".\obj\global.o" ".\obj\main.o" ".\obj\stm32f10x_it.o" ".\obj\misc.o" ".\obj\stm32f10x_exti.o" ".\obj\stm32f10x_flash.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_rcc.o" ".\obj\stm32f10x_spi.o" ".\obj\stm32f10x_usart.o" ".\obj\stm32f10x_tim.o" ".\obj\core_cm3.o" ".\obj\system_stm32f10x.o" ".\obj\startup_stm32f10x_md.o" ".\obj\adafruit_pn532.o" 
 --library_type=microlib --strict --scatter ".\Obj\STM32F103_PN532.sct" 
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
@@ -24,7 +25,7 @@
 ### ADS-LD Output File: '.\Obj\STM32F103_PN532.axf'
 ### ADS-LD Command File: '.\Obj\STM32F103_PN532.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\Obj\STM32F103_PN532.lnp', Handle=0x00000734
+### Creating CmdFile '.\Obj\STM32F103_PN532.lnp', Handle=0x000006D4
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\Obj\STM32F103_PN532.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

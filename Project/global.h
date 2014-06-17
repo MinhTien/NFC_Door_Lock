@@ -16,6 +16,12 @@
 #define BUZZER_PIN      GPIO_Pin_0
 #define BUZZER_PORT     GPIOA
 
+#define RELAY_A_PIN      GPIO_Pin_1
+#define RELAY_A_PORT     GPIOA
+
+#define RELAY_B_PIN      GPIO_Pin_2
+#define RELAY_B_PORT     GPIOA
+
 #define LED_PIN      GPIO_Pin_9
 #define LED_PORT     GPIOB
 
@@ -32,6 +38,8 @@
 #define SPI1_MOSI_PORT  GPIOA
 
 #define SPI1_PORT  GPIOA   
+
+#define _BV(x) 1<<x
 
 void delay_us(uint32_t Nus);
 void delay_ms(uint32_t Nus);
