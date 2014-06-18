@@ -22,14 +22,11 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
-#include "main.h"
+#include "global.h"
 
-extern uint8_t rx_buffer[];
-extern uint8_t rx_index;
-extern uint8_t msgReceiveComplete;
-extern uint16_t pppValue;
-extern uint16_t pulseCount;
-extern uint8_t time_update;
+extern gMav_t gMav;
+extern uint8_t timerStick;
+
 /** @addtogroup STM32F10x_StdPeriph_Examples
   * @{
   */
@@ -137,6 +134,7 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
+	timerStick=1;
 }
 
 /******************************************************************************/
@@ -348,6 +346,13 @@ void DMA1_Channel3_IRQHandler(void)
 *******************************************************************************/
 void DMA1_Channel4_IRQHandler(void)
 {
+	if(DMA_GetITStatus(DMA1_IT_TC4)==SET)
+	{
+		DMA_Cmd(DMA1_Channel4, DISABLE);
+		gMav.sendFinish=1;
+// 		printf("send finish\r\n");
+		DMA_ClearITPendingBit(DMA1_IT_TC4);
+	}	
 }
 
 /*******************************************************************************
@@ -532,19 +537,6 @@ void TIM1_CC_IRQHandler(void)
 *******************************************************************************/
 void TIM2_IRQHandler(void)
 {
-// 	if(TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
-// 	{
-// 		pulseCount++;
-// 		if(pulseCount >= pppValue) 
-// 		{
-// 			pulseCount=0;
-// 			TIM_ClearOC1Ref(TIM2, TIM_OCClear_Enable);
-// 			TIM_SetCounter(TIM2, 0);
-// 			TIM_SetCompare1(TIM2, 0);	
-// 			TIM_Cmd(TIM2, DISABLE);			
-// 		}
-// 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
-// 	}
 }
 
 
@@ -663,16 +655,6 @@ void SPI2_IRQHandler(void)
 *******************************************************************************/
 void USART1_IRQHandler(void)
 {
-// 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
-//   {
-// 		rx_buffer[rx_index++] = USART_ReceiveData(USART1);
-// 		if(rx_buffer[rx_index-1]== '#') 
-// 		{
-// 			msgReceiveComplete = 1;
-// 			rx_index = 0;		
-// 		}				
-// 		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
-//   }
 }
 
 /*******************************************************************************
@@ -831,7 +813,6 @@ void FSMC_IRQHandler(void)
 void SDIO_IRQHandler(void)
 {
   /* Process All SDIO Interrupt Sources */
-  //SD_ProcessIRQSrc();
 }
 
 /*******************************************************************************

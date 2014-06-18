@@ -4,7 +4,7 @@
 #include "string.h"
 #include "checksum.h"
 #include "mavlink_types.h"
-#include "globalData.h"
+#include "global.h"
 
 extern uint8_t mav_tx_buffer[];
 extern gMav_t gMav;
@@ -563,8 +563,7 @@ MAVLINK_HELPER void _mavlink_send_uart(mavlink_channel_t chan, const char *buf, 
 	uint16_t i;
 	DMA_Cmd(DMA1_Channel4, DISABLE);
 	DMA_SetCurrDataCounter(DMA1_Channel4, len);
-	 gMav.sendFinish=0;
-	
+	gMav.sendFinish=0;
 	for (i = 0; i < len; i++) {
 		//comm_send_ch(chan, (uint8_t)buf[i]);
 		mav_tx_buffer[i] = buf[i];

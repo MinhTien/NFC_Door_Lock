@@ -13,6 +13,12 @@
 
 #endif /* __GNUC__ */
 
+#define SYSTEM_ID 1
+
+#define MAVLINK_BAUD 57600
+#define MAV_RX_BUFF_SIZE 100
+#define MAV_TX_BUFF_SIZE 100
+
 #define BUZZER_PIN      GPIO_Pin_0
 #define BUZZER_PORT     GPIOA
 
@@ -53,5 +59,19 @@ void EXTI_Configuration(void);
 void TIM_Configuration(void);
 void Led(BitAction cmd);
 void Buzzer(BitAction cmd);
+
+enum gMAV_ENUM
+{
+	gMAV_SEND_MSG,
+  gMAV_SEND_PARAM,
+  gMAV_SEND_NONE,
+};
+
+typedef struct __gMav
+{ uint8_t sendType;
+  uint8_t sendFinish;
+  uint8_t msgIndex;
+  uint8_t update;
+} gMav_t ;
 
 #endif

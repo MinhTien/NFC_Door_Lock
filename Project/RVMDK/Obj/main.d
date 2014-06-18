@@ -33,3 +33,6 @@
 .\Obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
 .\Obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\Obj\main.o: ..\..\Libraries\Adafruit_PN532\Adafruit_PN532.h
+.\Obj\main.o: ..\gMavlinkV1_0.h
+.\Obj\main.o: ..\..\Libraries\mavlink\v1.0\mavlink_types.h
+.\Obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\inttypes.h

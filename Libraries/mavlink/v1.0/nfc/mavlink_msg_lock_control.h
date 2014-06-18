@@ -29,7 +29,7 @@ typedef struct __mavlink_lock_control_t
  * @param command lock command: LOCK or UNLOCK
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static inline uint16_t mavlink_msg_lock_control_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
+static __inline uint16_t mavlink_msg_lock_control_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
 						       uint8_t command)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
@@ -57,7 +57,7 @@ static inline uint16_t mavlink_msg_lock_control_pack(uint8_t system_id, uint8_t 
  * @param command lock command: LOCK or UNLOCK
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static inline uint16_t mavlink_msg_lock_control_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
+static __inline uint16_t mavlink_msg_lock_control_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
 							   mavlink_message_t* msg,
 						           uint8_t command)
 {
@@ -85,7 +85,7 @@ static inline uint16_t mavlink_msg_lock_control_pack_chan(uint8_t system_id, uin
  * @param msg The MAVLink message to compress the data into
  * @param lock_control C-struct to read the message contents from
  */
-static inline uint16_t mavlink_msg_lock_control_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_lock_control_t* lock_control)
+static __inline uint16_t mavlink_msg_lock_control_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_lock_control_t* lock_control)
 {
 	return mavlink_msg_lock_control_pack(system_id, component_id, msg, lock_control->command);
 }
@@ -98,7 +98,7 @@ static inline uint16_t mavlink_msg_lock_control_encode(uint8_t system_id, uint8_
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_lock_control_send(mavlink_channel_t chan, uint8_t command)
+static __inline void mavlink_msg_lock_control_send(mavlink_channel_t chan, uint8_t command)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
 	char buf[1];
@@ -123,7 +123,7 @@ static inline void mavlink_msg_lock_control_send(mavlink_channel_t chan, uint8_t
  *
  * @return lock command: LOCK or UNLOCK
  */
-static inline uint8_t mavlink_msg_lock_control_get_command(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_lock_control_get_command(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  0);
 }
@@ -134,7 +134,7 @@ static inline uint8_t mavlink_msg_lock_control_get_command(const mavlink_message
  * @param msg The message to decode
  * @param lock_control C-struct to decode the message contents into
  */
-static inline void mavlink_msg_lock_control_decode(const mavlink_message_t* msg, mavlink_lock_control_t* lock_control)
+static __inline void mavlink_msg_lock_control_decode(const mavlink_message_t* msg, mavlink_lock_control_t* lock_control)
 {
 #if MAVLINK_NEED_BYTE_SWAP
 	lock_control->command = mavlink_msg_lock_control_get_command(msg);

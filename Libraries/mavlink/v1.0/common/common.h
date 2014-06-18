@@ -331,7 +331,7 @@ enum MAV_TYPE
 enum MAV_COMPONENT
 {
 	MAV_COMP_ID_ALL=0, /*  | */
-	MAV_COMP_ID_gGIMBAL=200,
+	MAV_COMP_ID_NFC_READER=110,
 	MAV_COMP_ID_CAMERA=100, /*  | */
 	MAV_COMP_ID_SERVO1=140, /*  | */
 	MAV_COMP_ID_SERVO2=141, /*  | */
@@ -557,17 +557,17 @@ enum MAV_MISSION_RESULT
 // #include "./mavlink_msg_change_operator_control_ack.h"
 // #include "./mavlink_msg_auth_key.h"
 // #include "./mavlink_msg_set_mode.h"
- #include "./mavlink_msg_param_request_read.h"
- #include "./mavlink_msg_param_request_list.h"
- #include "./mavlink_msg_param_value.h"
- #include "./mavlink_msg_param_set.h"
+// #include "./mavlink_msg_param_request_read.h"
+// #include "./mavlink_msg_param_request_list.h"
+// #include "./mavlink_msg_param_value.h"
+// #include "./mavlink_msg_param_set.h"
 // #include "./mavlink_msg_gps_raw_int.h"
 // #include "./mavlink_msg_gps_status.h"
 // #include "./mavlink_msg_scaled_imu.h"
-#include "./mavlink_msg_raw_imu.h"
+//#include "./mavlink_msg_raw_imu.h"
 // #include "./mavlink_msg_raw_pressure.h"
 // #include "./mavlink_msg_scaled_pressure.h"
-#include "./mavlink_msg_attitude.h"
+//#include "./mavlink_msg_attitude.h"
 // #include "./mavlink_msg_attitude_quaternion.h"
 // #include "./mavlink_msg_local_position_ned.h"
 // #include "./mavlink_msg_global_position_int.h"
@@ -616,8 +616,8 @@ enum MAV_MISSION_RESULT
 // #include "./mavlink_msg_vicon_position_estimate.h"
 // #include "./mavlink_msg_memory_vect.h"
 // #include "./mavlink_msg_debug_vect.h"
-#include "./mavlink_msg_named_value_float.h"
-#include "./mavlink_msg_named_value_int.h"
+//#include "./mavlink_msg_named_value_float.h"
+//#include "./mavlink_msg_named_value_int.h"
 // #include "./mavlink_msg_statustext.h"
 // #include "./mavlink_msg_debug.h"
 // #include "./mavlink_msg_extended_message.h"

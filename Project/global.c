@@ -2,6 +2,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "string.h"
+	
+uint8_t timerStick=0;
+uint8_t success=0;
+uint8_t uidLength=0;                        // Length of the UID (4 or 7 bytes depending on ISO14443A card type)
+uint8_t uid[] = {0, 0, 0, 0, 0, 0, 0};  // Buffer to store the returned UID
+uint16_t updateMav;
+uint8_t mav_tx_buffer[MAV_TX_BUFF_SIZE];
+uint8_t mav_rx_buffer[MAV_RX_BUFF_SIZE];
+uint8_t mav_rx_tmp[MAV_RX_BUFF_SIZE];
+gMav_t gMav;
 
 PUTCHAR_PROTOTYPE
 {
@@ -40,26 +50,33 @@ void NVIC_Configuration(void)
 {
 	NVIC_InitTypeDef NVIC_InitStructure;
 	
-	/* EXTI */
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;					 
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;		   
-	NVIC_Init(&NVIC_InitStructure);
+// 	/* EXTI */
+// 	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;
+// 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;					 
+// 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+// 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;		   
+// 	NVIC_Init(&NVIC_InitStructure);
 	
-	/* USART1 Receive Interrupt */
-	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
+// 	/* USART1 Receive Interrupt */
+// 	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+// 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+// 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+// 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+// 	NVIC_Init(&NVIC_InitStructure);
+// 	
+// 	/* TIM2 Updated Interrupt */
+// 	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+// 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+// 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+// 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+// 	NVIC_Init(&NVIC_InitStructure);
 	
-	/* TIM2 Updated Interrupt */
-	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
+	/* Enable the DMA1_Channel4 global Interrupt */
+  NVIC_InitStructure.NVIC_IRQChannel = DMA1_Channel4_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;			
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;					
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;  
+  NVIC_Init(&NVIC_InitStructure);
 }
 
 void RCC_Configuration(void)
@@ -111,8 +128,8 @@ void RCC_Configuration(void)
 	}
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB | RCC_APB2Periph_USART1 | RCC_APB2Periph_SPI1 | RCC_APB2Periph_AFIO, ENABLE);
-
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
 }
 
 void GPIO_Configuration(void)
@@ -201,10 +218,10 @@ void beep_Buzzer(uint8_t ton, uint8_t toff, uint8_t times)
 	unsigned char i;
 	for (i=1; i<=times;i++)
 	{
-		GPIO_ResetBits(BUZZER_PORT, BUZZER_PIN);
+// 		GPIO_ResetBits(BUZZER_PORT, BUZZER_PIN);
 		GPIO_SetBits(LED_PORT, LED_PIN);
 		delay_ms(ton);
-		GPIO_SetBits(BUZZER_PORT, BUZZER_PIN);
+// 		GPIO_SetBits(BUZZER_PORT, BUZZER_PIN);
 		GPIO_ResetBits(LED_PORT, LED_PIN);
 		delay_ms(toff);
 	}
@@ -213,6 +230,55 @@ void beep_Buzzer(uint8_t ton, uint8_t toff, uint8_t times)
 void USART_Configuration(void)
 {  	 
 	USART_InitTypeDef USART_InitStructure;
+	DMA_InitTypeDef DMA_InitStructure;
+	
+	#ifdef  VECT_TAB_RAM
+		/* Set the Vector Table base location at 0x20000000 */
+		NVIC_SetVectorTable(NVIC_VectTab_RAM, 0x0);
+	#else  /* VECT_TAB_FLASH  */
+		/* Set the Vector Table base location at 0x08000000 */
+		NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0);
+	#endif	
+	
+	/* Set address for DMA memory TX*/ 
+	DMA_InitStructure.DMA_PeripheralBaseAddr = USART1_BASE + 0x04;
+	DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)mav_tx_buffer;
+	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+	DMA_InitStructure.DMA_BufferSize = 0;
+	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
+	DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
+	DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;
+	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+	/* Clear the TC bit in the SR */
+	USART_ClearFlag(USART1, USART_FLAG_TC);	
+	/* DMA1_Channel4 configuration */
+	DMA_Init(DMA1_Channel4, &DMA_InitStructure);	
+	/* Enable DMA interupt */
+	DMA_ITConfig(DMA1_Channel4, DMA_IT_TC, ENABLE);	
+	/* Enable DMA */
+	DMA_Cmd(DMA1_Channel4, DISABLE);
+	
+	/* Set address for DMA USART1 RX*/
+	DMA_InitStructure.DMA_PeripheralBaseAddr = USART1_BASE + 0x04;
+	DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t) mav_rx_buffer;
+	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+	DMA_InitStructure.DMA_BufferSize = MAV_RX_BUFF_SIZE; 
+	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
+	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;//
+	DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+	
+	/* DMA1_Channel5 configuration */
+	DMA_Init(DMA1_Channel5, &DMA_InitStructure);
+	
+	/* Enable DMA */
+	DMA_Cmd(DMA1_Channel5, ENABLE);
 	
 	USART_InitStructure.USART_BaudRate = 57600;
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
@@ -220,13 +286,10 @@ void USART_Configuration(void)
 	USART_InitStructure.USART_Parity = USART_Parity_No;
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	
-
 	/* USART configuration */
 	USART_Init(USART1, &USART_InitStructure);
-	
-	/* USART interrupt */
-// 	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
-	
+	/* Enable USART  DMA */
+	USART_DMACmd(USART1, USART_DMAReq_Tx | USART_DMAReq_Rx, ENABLE);
 	/* Enable USART */
 	USART_Cmd(USART1, ENABLE);
 }
@@ -272,20 +335,19 @@ void TIM_Configuration(void)
 	TIM_OC4PreloadConfig(TIM2, TIM_OCPreload_Enable);
 	TIM_ARRPreloadConfig(TIM2, ENABLE);
 	
-// 	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
 	TIM_SetCounter(TIM2, 0);
  	TIM_Cmd(TIM2, ENABLE);
 }
 void EXTI_Configuration(void)
 {
-	EXTI_InitTypeDef EXTI_InitStructure;
-	
-	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource5);
-	EXTI_InitStructure.EXTI_Mode		=	EXTI_Mode_Interrupt;
-  EXTI_InitStructure.EXTI_Trigger	=	EXTI_Trigger_Falling;
-  EXTI_InitStructure.EXTI_Line		=	EXTI_Line5;
-  EXTI_InitStructure.EXTI_LineCmd	=	ENABLE;
-  EXTI_Init(&EXTI_InitStructure);
+// 	EXTI_InitTypeDef EXTI_InitStructure;
+// 	
+// 	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource5);
+// 	EXTI_InitStructure.EXTI_Mode		=	EXTI_Mode_Interrupt;
+//   EXTI_InitStructure.EXTI_Trigger	=	EXTI_Trigger_Falling;
+//   EXTI_InitStructure.EXTI_Line		=	EXTI_Line5;
+//   EXTI_InitStructure.EXTI_LineCmd	=	ENABLE;
+//   EXTI_Init(&EXTI_InitStructure);
 }
 
 void Led(BitAction cmd)

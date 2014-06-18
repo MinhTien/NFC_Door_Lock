@@ -38,7 +38,7 @@ typedef struct __mavlink_mifare_classic_uid_t
  * @param byte3 uid byte3
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static inline uint16_t mavlink_msg_mifare_classic_uid_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
+static __inline uint16_t mavlink_msg_mifare_classic_uid_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
 						       uint8_t byte0, uint8_t byte1, uint8_t byte2, uint8_t byte3)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
@@ -75,7 +75,7 @@ static inline uint16_t mavlink_msg_mifare_classic_uid_pack(uint8_t system_id, ui
  * @param byte3 uid byte3
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static inline uint16_t mavlink_msg_mifare_classic_uid_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
+static __inline uint16_t mavlink_msg_mifare_classic_uid_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
 							   mavlink_message_t* msg,
 						           uint8_t byte0,uint8_t byte1,uint8_t byte2,uint8_t byte3)
 {
@@ -109,7 +109,7 @@ static inline uint16_t mavlink_msg_mifare_classic_uid_pack_chan(uint8_t system_i
  * @param msg The MAVLink message to compress the data into
  * @param mifare_classic_uid C-struct to read the message contents from
  */
-static inline uint16_t mavlink_msg_mifare_classic_uid_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_mifare_classic_uid_t* mifare_classic_uid)
+static __inline uint16_t mavlink_msg_mifare_classic_uid_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_mifare_classic_uid_t* mifare_classic_uid)
 {
 	return mavlink_msg_mifare_classic_uid_pack(system_id, component_id, msg, mifare_classic_uid->byte0, mifare_classic_uid->byte1, mifare_classic_uid->byte2, mifare_classic_uid->byte3);
 }
@@ -125,7 +125,7 @@ static inline uint16_t mavlink_msg_mifare_classic_uid_encode(uint8_t system_id, 
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_mifare_classic_uid_send(mavlink_channel_t chan, uint8_t byte0, uint8_t byte1, uint8_t byte2, uint8_t byte3)
+static __inline void mavlink_msg_mifare_classic_uid_send(mavlink_channel_t chan, uint8_t byte0, uint8_t byte1, uint8_t byte2, uint8_t byte3)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
 	char buf[4];
@@ -156,7 +156,7 @@ static inline void mavlink_msg_mifare_classic_uid_send(mavlink_channel_t chan, u
  *
  * @return uid byte0
  */
-static inline uint8_t mavlink_msg_mifare_classic_uid_get_byte0(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_classic_uid_get_byte0(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  0);
 }
@@ -166,7 +166,7 @@ static inline uint8_t mavlink_msg_mifare_classic_uid_get_byte0(const mavlink_mes
  *
  * @return uid byte1
  */
-static inline uint8_t mavlink_msg_mifare_classic_uid_get_byte1(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_classic_uid_get_byte1(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  1);
 }
@@ -176,7 +176,7 @@ static inline uint8_t mavlink_msg_mifare_classic_uid_get_byte1(const mavlink_mes
  *
  * @return uid byte2
  */
-static inline uint8_t mavlink_msg_mifare_classic_uid_get_byte2(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_classic_uid_get_byte2(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  2);
 }
@@ -186,7 +186,7 @@ static inline uint8_t mavlink_msg_mifare_classic_uid_get_byte2(const mavlink_mes
  *
  * @return uid byte3
  */
-static inline uint8_t mavlink_msg_mifare_classic_uid_get_byte3(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_classic_uid_get_byte3(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  3);
 }
@@ -197,7 +197,7 @@ static inline uint8_t mavlink_msg_mifare_classic_uid_get_byte3(const mavlink_mes
  * @param msg The message to decode
  * @param mifare_classic_uid C-struct to decode the message contents into
  */
-static inline void mavlink_msg_mifare_classic_uid_decode(const mavlink_message_t* msg, mavlink_mifare_classic_uid_t* mifare_classic_uid)
+static __inline void mavlink_msg_mifare_classic_uid_decode(const mavlink_message_t* msg, mavlink_mifare_classic_uid_t* mifare_classic_uid)
 {
 #if MAVLINK_NEED_BYTE_SWAP
 	mifare_classic_uid->byte0 = mavlink_msg_mifare_classic_uid_get_byte0(msg);
