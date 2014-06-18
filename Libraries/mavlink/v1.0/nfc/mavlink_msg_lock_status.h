@@ -4,18 +4,20 @@
 
 typedef struct __mavlink_lock_status_t
 {
+ uint16_t address; ///< board address
  uint8_t lockstatus; ///< lock status: LOCKED, UNLOCKED, LOCK_ERROR, UNLOCK_ERROR
 } mavlink_lock_status_t;
 
-#define MAVLINK_MSG_ID_LOCK_STATUS_LEN 1
-#define MAVLINK_MSG_ID_154_LEN 1
+#define MAVLINK_MSG_ID_LOCK_STATUS_LEN 3
+#define MAVLINK_MSG_ID_154_LEN 3
 
 
 
 #define MAVLINK_MESSAGE_INFO_LOCK_STATUS { \
 	"LOCK_STATUS", \
-	1, \
-	{  { "lockstatus", NULL, MAVLINK_TYPE_UINT8_T, 0, 0, offsetof(mavlink_lock_status_t, lockstatus) }, \
+	2, \
+	{  { "address", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_lock_status_t, address) }, \
+         { "lockstatus", NULL, MAVLINK_TYPE_UINT8_T, 0, 2, offsetof(mavlink_lock_status_t, lockstatus) }, \
          } \
 }
 
@@ -26,26 +28,29 @@ typedef struct __mavlink_lock_status_t
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
+ * @param address board address
  * @param lockstatus lock status: LOCKED, UNLOCKED, LOCK_ERROR, UNLOCK_ERROR
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static __inline uint16_t mavlink_msg_lock_status_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-						       uint8_t lockstatus)
+static inline uint16_t mavlink_msg_lock_status_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
+						       uint16_t address, uint8_t lockstatus)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[1];
-	_mav_put_uint8_t(buf, 0, lockstatus);
+	char buf[3];
+	_mav_put_uint16_t(buf, 0, address);
+	_mav_put_uint8_t(buf, 2, lockstatus);
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, 1);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, 3);
 #else
 	mavlink_lock_status_t packet;
+	packet.address = address;
 	packet.lockstatus = lockstatus;
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, 1);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, 3);
 #endif
 
 	msg->msgid = MAVLINK_MSG_ID_LOCK_STATUS;
-	return mavlink_finalize_message(msg, system_id, component_id, 1, 225);
+	return mavlink_finalize_message(msg, system_id, component_id, 3, 222);
 }
 
 /**
@@ -54,27 +59,30 @@ static __inline uint16_t mavlink_msg_lock_status_pack(uint8_t system_id, uint8_t
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message was sent over
  * @param msg The MAVLink message to compress the data into
+ * @param address board address
  * @param lockstatus lock status: LOCKED, UNLOCKED, LOCK_ERROR, UNLOCK_ERROR
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static __inline uint16_t mavlink_msg_lock_status_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
+static inline uint16_t mavlink_msg_lock_status_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
 							   mavlink_message_t* msg,
-						           uint8_t lockstatus)
+						           uint16_t address,uint8_t lockstatus)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[1];
-	_mav_put_uint8_t(buf, 0, lockstatus);
+	char buf[3];
+	_mav_put_uint16_t(buf, 0, address);
+	_mav_put_uint8_t(buf, 2, lockstatus);
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, 1);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, 3);
 #else
 	mavlink_lock_status_t packet;
+	packet.address = address;
 	packet.lockstatus = lockstatus;
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, 1);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, 3);
 #endif
 
 	msg->msgid = MAVLINK_MSG_ID_LOCK_STATUS;
-	return mavlink_finalize_message_chan(msg, system_id, component_id, chan, 1, 225);
+	return mavlink_finalize_message_chan(msg, system_id, component_id, chan, 3, 222);
 }
 
 /**
@@ -85,31 +93,34 @@ static __inline uint16_t mavlink_msg_lock_status_pack_chan(uint8_t system_id, ui
  * @param msg The MAVLink message to compress the data into
  * @param lock_status C-struct to read the message contents from
  */
-static __inline uint16_t mavlink_msg_lock_status_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_lock_status_t* lock_status)
+static inline uint16_t mavlink_msg_lock_status_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_lock_status_t* lock_status)
 {
-	return mavlink_msg_lock_status_pack(system_id, component_id, msg, lock_status->lockstatus);
+	return mavlink_msg_lock_status_pack(system_id, component_id, msg, lock_status->address, lock_status->lockstatus);
 }
 
 /**
  * @brief Send a lock_status message
  * @param chan MAVLink channel to send the message
  *
+ * @param address board address
  * @param lockstatus lock status: LOCKED, UNLOCKED, LOCK_ERROR, UNLOCK_ERROR
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static __inline void mavlink_msg_lock_status_send(mavlink_channel_t chan, uint8_t lockstatus)
+static inline void mavlink_msg_lock_status_send(mavlink_channel_t chan, uint16_t address, uint8_t lockstatus)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[1];
-	_mav_put_uint8_t(buf, 0, lockstatus);
+	char buf[3];
+	_mav_put_uint16_t(buf, 0, address);
+	_mav_put_uint8_t(buf, 2, lockstatus);
 
-	_mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_LOCK_STATUS, buf, 1, 225);
+	_mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_LOCK_STATUS, buf, 3, 222);
 #else
 	mavlink_lock_status_t packet;
+	packet.address = address;
 	packet.lockstatus = lockstatus;
 
-	_mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_LOCK_STATUS, (const char *)&packet, 1, 225);
+	_mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_LOCK_STATUS, (const char *)&packet, 3, 222);
 #endif
 }
 
@@ -119,13 +130,23 @@ static __inline void mavlink_msg_lock_status_send(mavlink_channel_t chan, uint8_
 
 
 /**
+ * @brief Get field address from lock_status message
+ *
+ * @return board address
+ */
+static inline uint16_t mavlink_msg_lock_status_get_address(const mavlink_message_t* msg)
+{
+	return _MAV_RETURN_uint16_t(msg,  0);
+}
+
+/**
  * @brief Get field lockstatus from lock_status message
  *
  * @return lock status: LOCKED, UNLOCKED, LOCK_ERROR, UNLOCK_ERROR
  */
-static __inline uint8_t mavlink_msg_lock_status_get_lockstatus(const mavlink_message_t* msg)
+static inline uint8_t mavlink_msg_lock_status_get_lockstatus(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  0);
+	return _MAV_RETURN_uint8_t(msg,  2);
 }
 
 /**
@@ -134,11 +155,12 @@ static __inline uint8_t mavlink_msg_lock_status_get_lockstatus(const mavlink_mes
  * @param msg The message to decode
  * @param lock_status C-struct to decode the message contents into
  */
-static __inline void mavlink_msg_lock_status_decode(const mavlink_message_t* msg, mavlink_lock_status_t* lock_status)
+static inline void mavlink_msg_lock_status_decode(const mavlink_message_t* msg, mavlink_lock_status_t* lock_status)
 {
 #if MAVLINK_NEED_BYTE_SWAP
+	lock_status->address = mavlink_msg_lock_status_get_address(msg);
 	lock_status->lockstatus = mavlink_msg_lock_status_get_lockstatus(msg);
 #else
-	memcpy(lock_status, _MAV_PAYLOAD(msg), 1);
+	memcpy(lock_status, _MAV_PAYLOAD(msg), 3);
 #endif
 }

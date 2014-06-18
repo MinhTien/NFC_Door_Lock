@@ -4,6 +4,7 @@
 
 typedef struct __mavlink_general_msg_t
 {
+ uint16_t address; ///< board address
  uint8_t value0; ///< value0
  uint8_t value1; ///< value1
  uint8_t value2; ///< value2
@@ -14,22 +15,23 @@ typedef struct __mavlink_general_msg_t
  uint8_t value7; ///< value7
 } mavlink_general_msg_t;
 
-#define MAVLINK_MSG_ID_GENERAL_MSG_LEN 8
-#define MAVLINK_MSG_ID_150_LEN 8
+#define MAVLINK_MSG_ID_GENERAL_MSG_LEN 10
+#define MAVLINK_MSG_ID_150_LEN 10
 
 
 
 #define MAVLINK_MESSAGE_INFO_GENERAL_MSG { \
 	"GENERAL_MSG", \
-	8, \
-	{  { "value0", NULL, MAVLINK_TYPE_UINT8_T, 0, 0, offsetof(mavlink_general_msg_t, value0) }, \
-         { "value1", NULL, MAVLINK_TYPE_UINT8_T, 0, 1, offsetof(mavlink_general_msg_t, value1) }, \
-         { "value2", NULL, MAVLINK_TYPE_UINT8_T, 0, 2, offsetof(mavlink_general_msg_t, value2) }, \
-         { "value3", NULL, MAVLINK_TYPE_UINT8_T, 0, 3, offsetof(mavlink_general_msg_t, value3) }, \
-         { "value4", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_general_msg_t, value4) }, \
-         { "value5", NULL, MAVLINK_TYPE_UINT8_T, 0, 5, offsetof(mavlink_general_msg_t, value5) }, \
-         { "value6", NULL, MAVLINK_TYPE_UINT8_T, 0, 6, offsetof(mavlink_general_msg_t, value6) }, \
-         { "value7", NULL, MAVLINK_TYPE_UINT8_T, 0, 7, offsetof(mavlink_general_msg_t, value7) }, \
+	9, \
+	{  { "address", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_general_msg_t, address) }, \
+         { "value0", NULL, MAVLINK_TYPE_UINT8_T, 0, 2, offsetof(mavlink_general_msg_t, value0) }, \
+         { "value1", NULL, MAVLINK_TYPE_UINT8_T, 0, 3, offsetof(mavlink_general_msg_t, value1) }, \
+         { "value2", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_general_msg_t, value2) }, \
+         { "value3", NULL, MAVLINK_TYPE_UINT8_T, 0, 5, offsetof(mavlink_general_msg_t, value3) }, \
+         { "value4", NULL, MAVLINK_TYPE_UINT8_T, 0, 6, offsetof(mavlink_general_msg_t, value4) }, \
+         { "value5", NULL, MAVLINK_TYPE_UINT8_T, 0, 7, offsetof(mavlink_general_msg_t, value5) }, \
+         { "value6", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_general_msg_t, value6) }, \
+         { "value7", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_general_msg_t, value7) }, \
          } \
 }
 
@@ -40,6 +42,7 @@ typedef struct __mavlink_general_msg_t
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
+ * @param address board address
  * @param value0 value0
  * @param value1 value1
  * @param value2 value2
@@ -50,23 +53,25 @@ typedef struct __mavlink_general_msg_t
  * @param value7 value7
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static __inline uint16_t mavlink_msg_general_msg_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-						       uint8_t value0, uint8_t value1, uint8_t value2, uint8_t value3, uint8_t value4, uint8_t value5, uint8_t value6, uint8_t value7)
+static inline uint16_t mavlink_msg_general_msg_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
+						       uint16_t address, uint8_t value0, uint8_t value1, uint8_t value2, uint8_t value3, uint8_t value4, uint8_t value5, uint8_t value6, uint8_t value7)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[8];
-	_mav_put_uint8_t(buf, 0, value0);
-	_mav_put_uint8_t(buf, 1, value1);
-	_mav_put_uint8_t(buf, 2, value2);
-	_mav_put_uint8_t(buf, 3, value3);
-	_mav_put_uint8_t(buf, 4, value4);
-	_mav_put_uint8_t(buf, 5, value5);
-	_mav_put_uint8_t(buf, 6, value6);
-	_mav_put_uint8_t(buf, 7, value7);
+	char buf[10];
+	_mav_put_uint16_t(buf, 0, address);
+	_mav_put_uint8_t(buf, 2, value0);
+	_mav_put_uint8_t(buf, 3, value1);
+	_mav_put_uint8_t(buf, 4, value2);
+	_mav_put_uint8_t(buf, 5, value3);
+	_mav_put_uint8_t(buf, 6, value4);
+	_mav_put_uint8_t(buf, 7, value5);
+	_mav_put_uint8_t(buf, 8, value6);
+	_mav_put_uint8_t(buf, 9, value7);
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, 8);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, 10);
 #else
 	mavlink_general_msg_t packet;
+	packet.address = address;
 	packet.value0 = value0;
 	packet.value1 = value1;
 	packet.value2 = value2;
@@ -76,11 +81,11 @@ static __inline uint16_t mavlink_msg_general_msg_pack(uint8_t system_id, uint8_t
 	packet.value6 = value6;
 	packet.value7 = value7;
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, 8);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, 10);
 #endif
 
 	msg->msgid = MAVLINK_MSG_ID_GENERAL_MSG;
-	return mavlink_finalize_message(msg, system_id, component_id, 8, 185);
+	return mavlink_finalize_message(msg, system_id, component_id, 10, 254);
 }
 
 /**
@@ -89,6 +94,7 @@ static __inline uint16_t mavlink_msg_general_msg_pack(uint8_t system_id, uint8_t
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message was sent over
  * @param msg The MAVLink message to compress the data into
+ * @param address board address
  * @param value0 value0
  * @param value1 value1
  * @param value2 value2
@@ -99,24 +105,26 @@ static __inline uint16_t mavlink_msg_general_msg_pack(uint8_t system_id, uint8_t
  * @param value7 value7
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static __inline uint16_t mavlink_msg_general_msg_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
+static inline uint16_t mavlink_msg_general_msg_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
 							   mavlink_message_t* msg,
-						           uint8_t value0,uint8_t value1,uint8_t value2,uint8_t value3,uint8_t value4,uint8_t value5,uint8_t value6,uint8_t value7)
+						           uint16_t address,uint8_t value0,uint8_t value1,uint8_t value2,uint8_t value3,uint8_t value4,uint8_t value5,uint8_t value6,uint8_t value7)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[8];
-	_mav_put_uint8_t(buf, 0, value0);
-	_mav_put_uint8_t(buf, 1, value1);
-	_mav_put_uint8_t(buf, 2, value2);
-	_mav_put_uint8_t(buf, 3, value3);
-	_mav_put_uint8_t(buf, 4, value4);
-	_mav_put_uint8_t(buf, 5, value5);
-	_mav_put_uint8_t(buf, 6, value6);
-	_mav_put_uint8_t(buf, 7, value7);
+	char buf[10];
+	_mav_put_uint16_t(buf, 0, address);
+	_mav_put_uint8_t(buf, 2, value0);
+	_mav_put_uint8_t(buf, 3, value1);
+	_mav_put_uint8_t(buf, 4, value2);
+	_mav_put_uint8_t(buf, 5, value3);
+	_mav_put_uint8_t(buf, 6, value4);
+	_mav_put_uint8_t(buf, 7, value5);
+	_mav_put_uint8_t(buf, 8, value6);
+	_mav_put_uint8_t(buf, 9, value7);
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, 8);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, 10);
 #else
 	mavlink_general_msg_t packet;
+	packet.address = address;
 	packet.value0 = value0;
 	packet.value1 = value1;
 	packet.value2 = value2;
@@ -126,11 +134,11 @@ static __inline uint16_t mavlink_msg_general_msg_pack_chan(uint8_t system_id, ui
 	packet.value6 = value6;
 	packet.value7 = value7;
 
-        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, 8);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, 10);
 #endif
 
 	msg->msgid = MAVLINK_MSG_ID_GENERAL_MSG;
-	return mavlink_finalize_message_chan(msg, system_id, component_id, chan, 8, 185);
+	return mavlink_finalize_message_chan(msg, system_id, component_id, chan, 10, 254);
 }
 
 /**
@@ -141,15 +149,16 @@ static __inline uint16_t mavlink_msg_general_msg_pack_chan(uint8_t system_id, ui
  * @param msg The MAVLink message to compress the data into
  * @param general_msg C-struct to read the message contents from
  */
-static __inline uint16_t mavlink_msg_general_msg_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_general_msg_t* general_msg)
+static inline uint16_t mavlink_msg_general_msg_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_general_msg_t* general_msg)
 {
-	return mavlink_msg_general_msg_pack(system_id, component_id, msg, general_msg->value0, general_msg->value1, general_msg->value2, general_msg->value3, general_msg->value4, general_msg->value5, general_msg->value6, general_msg->value7);
+	return mavlink_msg_general_msg_pack(system_id, component_id, msg, general_msg->address, general_msg->value0, general_msg->value1, general_msg->value2, general_msg->value3, general_msg->value4, general_msg->value5, general_msg->value6, general_msg->value7);
 }
 
 /**
  * @brief Send a general_msg message
  * @param chan MAVLink channel to send the message
  *
+ * @param address board address
  * @param value0 value0
  * @param value1 value1
  * @param value2 value2
@@ -161,22 +170,24 @@ static __inline uint16_t mavlink_msg_general_msg_encode(uint8_t system_id, uint8
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static __inline void mavlink_msg_general_msg_send(mavlink_channel_t chan, uint8_t value0, uint8_t value1, uint8_t value2, uint8_t value3, uint8_t value4, uint8_t value5, uint8_t value6, uint8_t value7)
+static inline void mavlink_msg_general_msg_send(mavlink_channel_t chan, uint16_t address, uint8_t value0, uint8_t value1, uint8_t value2, uint8_t value3, uint8_t value4, uint8_t value5, uint8_t value6, uint8_t value7)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[8];
-	_mav_put_uint8_t(buf, 0, value0);
-	_mav_put_uint8_t(buf, 1, value1);
-	_mav_put_uint8_t(buf, 2, value2);
-	_mav_put_uint8_t(buf, 3, value3);
-	_mav_put_uint8_t(buf, 4, value4);
-	_mav_put_uint8_t(buf, 5, value5);
-	_mav_put_uint8_t(buf, 6, value6);
-	_mav_put_uint8_t(buf, 7, value7);
+	char buf[10];
+	_mav_put_uint16_t(buf, 0, address);
+	_mav_put_uint8_t(buf, 2, value0);
+	_mav_put_uint8_t(buf, 3, value1);
+	_mav_put_uint8_t(buf, 4, value2);
+	_mav_put_uint8_t(buf, 5, value3);
+	_mav_put_uint8_t(buf, 6, value4);
+	_mav_put_uint8_t(buf, 7, value5);
+	_mav_put_uint8_t(buf, 8, value6);
+	_mav_put_uint8_t(buf, 9, value7);
 
-	_mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_GENERAL_MSG, buf, 8, 185);
+	_mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_GENERAL_MSG, buf, 10, 254);
 #else
 	mavlink_general_msg_t packet;
+	packet.address = address;
 	packet.value0 = value0;
 	packet.value1 = value1;
 	packet.value2 = value2;
@@ -186,7 +197,7 @@ static __inline void mavlink_msg_general_msg_send(mavlink_channel_t chan, uint8_
 	packet.value6 = value6;
 	packet.value7 = value7;
 
-	_mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_GENERAL_MSG, (const char *)&packet, 8, 185);
+	_mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_GENERAL_MSG, (const char *)&packet, 10, 254);
 #endif
 }
 
@@ -196,13 +207,23 @@ static __inline void mavlink_msg_general_msg_send(mavlink_channel_t chan, uint8_
 
 
 /**
+ * @brief Get field address from general_msg message
+ *
+ * @return board address
+ */
+static inline uint16_t mavlink_msg_general_msg_get_address(const mavlink_message_t* msg)
+{
+	return _MAV_RETURN_uint16_t(msg,  0);
+}
+
+/**
  * @brief Get field value0 from general_msg message
  *
  * @return value0
  */
-static __inline uint8_t mavlink_msg_general_msg_get_value0(const mavlink_message_t* msg)
+static inline uint8_t mavlink_msg_general_msg_get_value0(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  0);
+	return _MAV_RETURN_uint8_t(msg,  2);
 }
 
 /**
@@ -210,9 +231,9 @@ static __inline uint8_t mavlink_msg_general_msg_get_value0(const mavlink_message
  *
  * @return value1
  */
-static __inline uint8_t mavlink_msg_general_msg_get_value1(const mavlink_message_t* msg)
+static inline uint8_t mavlink_msg_general_msg_get_value1(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  1);
+	return _MAV_RETURN_uint8_t(msg,  3);
 }
 
 /**
@@ -220,9 +241,9 @@ static __inline uint8_t mavlink_msg_general_msg_get_value1(const mavlink_message
  *
  * @return value2
  */
-static __inline uint8_t mavlink_msg_general_msg_get_value2(const mavlink_message_t* msg)
+static inline uint8_t mavlink_msg_general_msg_get_value2(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  2);
+	return _MAV_RETURN_uint8_t(msg,  4);
 }
 
 /**
@@ -230,9 +251,9 @@ static __inline uint8_t mavlink_msg_general_msg_get_value2(const mavlink_message
  *
  * @return value3
  */
-static __inline uint8_t mavlink_msg_general_msg_get_value3(const mavlink_message_t* msg)
+static inline uint8_t mavlink_msg_general_msg_get_value3(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  3);
+	return _MAV_RETURN_uint8_t(msg,  5);
 }
 
 /**
@@ -240,9 +261,9 @@ static __inline uint8_t mavlink_msg_general_msg_get_value3(const mavlink_message
  *
  * @return value4
  */
-static __inline uint8_t mavlink_msg_general_msg_get_value4(const mavlink_message_t* msg)
+static inline uint8_t mavlink_msg_general_msg_get_value4(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  4);
+	return _MAV_RETURN_uint8_t(msg,  6);
 }
 
 /**
@@ -250,9 +271,9 @@ static __inline uint8_t mavlink_msg_general_msg_get_value4(const mavlink_message
  *
  * @return value5
  */
-static __inline uint8_t mavlink_msg_general_msg_get_value5(const mavlink_message_t* msg)
+static inline uint8_t mavlink_msg_general_msg_get_value5(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  5);
+	return _MAV_RETURN_uint8_t(msg,  7);
 }
 
 /**
@@ -260,9 +281,9 @@ static __inline uint8_t mavlink_msg_general_msg_get_value5(const mavlink_message
  *
  * @return value6
  */
-static __inline uint8_t mavlink_msg_general_msg_get_value6(const mavlink_message_t* msg)
+static inline uint8_t mavlink_msg_general_msg_get_value6(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  6);
+	return _MAV_RETURN_uint8_t(msg,  8);
 }
 
 /**
@@ -270,9 +291,9 @@ static __inline uint8_t mavlink_msg_general_msg_get_value6(const mavlink_message
  *
  * @return value7
  */
-static __inline uint8_t mavlink_msg_general_msg_get_value7(const mavlink_message_t* msg)
+static inline uint8_t mavlink_msg_general_msg_get_value7(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  7);
+	return _MAV_RETURN_uint8_t(msg,  9);
 }
 
 /**
@@ -281,9 +302,10 @@ static __inline uint8_t mavlink_msg_general_msg_get_value7(const mavlink_message
  * @param msg The message to decode
  * @param general_msg C-struct to decode the message contents into
  */
-static __inline void mavlink_msg_general_msg_decode(const mavlink_message_t* msg, mavlink_general_msg_t* general_msg)
+static inline void mavlink_msg_general_msg_decode(const mavlink_message_t* msg, mavlink_general_msg_t* general_msg)
 {
 #if MAVLINK_NEED_BYTE_SWAP
+	general_msg->address = mavlink_msg_general_msg_get_address(msg);
 	general_msg->value0 = mavlink_msg_general_msg_get_value0(msg);
 	general_msg->value1 = mavlink_msg_general_msg_get_value1(msg);
 	general_msg->value2 = mavlink_msg_general_msg_get_value2(msg);
@@ -293,6 +315,6 @@ static __inline void mavlink_msg_general_msg_decode(const mavlink_message_t* msg
 	general_msg->value6 = mavlink_msg_general_msg_get_value6(msg);
 	general_msg->value7 = mavlink_msg_general_msg_get_value7(msg);
 #else
-	memcpy(general_msg, _MAV_PAYLOAD(msg), 8);
+	memcpy(general_msg, _MAV_PAYLOAD(msg), 10);
 #endif
 }
