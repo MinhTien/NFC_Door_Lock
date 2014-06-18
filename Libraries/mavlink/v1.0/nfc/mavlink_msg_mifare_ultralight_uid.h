@@ -50,7 +50,7 @@ typedef struct __mavlink_mifare_ultralight_uid_t
  * @param byte6 uid byte6
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static inline uint16_t mavlink_msg_mifare_ultralight_uid_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
+static __inline uint16_t mavlink_msg_mifare_ultralight_uid_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
 						       uint16_t address, uint8_t byte0, uint8_t byte1, uint8_t byte2, uint8_t byte3, uint8_t byte4, uint8_t byte5, uint8_t byte6)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
@@ -99,7 +99,7 @@ static inline uint16_t mavlink_msg_mifare_ultralight_uid_pack(uint8_t system_id,
  * @param byte6 uid byte6
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static inline uint16_t mavlink_msg_mifare_ultralight_uid_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
+static __inline uint16_t mavlink_msg_mifare_ultralight_uid_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
 							   mavlink_message_t* msg,
 						           uint16_t address,uint8_t byte0,uint8_t byte1,uint8_t byte2,uint8_t byte3,uint8_t byte4,uint8_t byte5,uint8_t byte6)
 {
@@ -141,7 +141,7 @@ static inline uint16_t mavlink_msg_mifare_ultralight_uid_pack_chan(uint8_t syste
  * @param msg The MAVLink message to compress the data into
  * @param mifare_ultralight_uid C-struct to read the message contents from
  */
-static inline uint16_t mavlink_msg_mifare_ultralight_uid_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_mifare_ultralight_uid_t* mifare_ultralight_uid)
+static __inline uint16_t mavlink_msg_mifare_ultralight_uid_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_mifare_ultralight_uid_t* mifare_ultralight_uid)
 {
 	return mavlink_msg_mifare_ultralight_uid_pack(system_id, component_id, msg, mifare_ultralight_uid->address, mifare_ultralight_uid->byte0, mifare_ultralight_uid->byte1, mifare_ultralight_uid->byte2, mifare_ultralight_uid->byte3, mifare_ultralight_uid->byte4, mifare_ultralight_uid->byte5, mifare_ultralight_uid->byte6);
 }
@@ -161,7 +161,7 @@ static inline uint16_t mavlink_msg_mifare_ultralight_uid_encode(uint8_t system_i
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_mifare_ultralight_uid_send(mavlink_channel_t chan, uint16_t address, uint8_t byte0, uint8_t byte1, uint8_t byte2, uint8_t byte3, uint8_t byte4, uint8_t byte5, uint8_t byte6)
+static __inline void mavlink_msg_mifare_ultralight_uid_send(mavlink_channel_t chan, uint16_t address, uint8_t byte0, uint8_t byte1, uint8_t byte2, uint8_t byte3, uint8_t byte4, uint8_t byte5, uint8_t byte6)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
 	char buf[9];
@@ -200,7 +200,7 @@ static inline void mavlink_msg_mifare_ultralight_uid_send(mavlink_channel_t chan
  *
  * @return board address
  */
-static inline uint16_t mavlink_msg_mifare_ultralight_uid_get_address(const mavlink_message_t* msg)
+static __inline uint16_t mavlink_msg_mifare_ultralight_uid_get_address(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint16_t(msg,  0);
 }
@@ -210,7 +210,7 @@ static inline uint16_t mavlink_msg_mifare_ultralight_uid_get_address(const mavli
  *
  * @return uid byte0
  */
-static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte0(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte0(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  2);
 }
@@ -220,7 +220,7 @@ static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte0(const mavlink_
  *
  * @return uid byte1
  */
-static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte1(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte1(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  3);
 }
@@ -230,7 +230,7 @@ static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte1(const mavlink_
  *
  * @return uid byte2
  */
-static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte2(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte2(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  4);
 }
@@ -240,7 +240,7 @@ static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte2(const mavlink_
  *
  * @return uid byte3
  */
-static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte3(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte3(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  5);
 }
@@ -250,7 +250,7 @@ static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte3(const mavlink_
  *
  * @return uid byte4
  */
-static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte4(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte4(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  6);
 }
@@ -260,7 +260,7 @@ static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte4(const mavlink_
  *
  * @return uid byte5
  */
-static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte5(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte5(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  7);
 }
@@ -270,7 +270,7 @@ static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte5(const mavlink_
  *
  * @return uid byte6
  */
-static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte6(const mavlink_message_t* msg)
+static __inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte6(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint8_t(msg,  8);
 }
@@ -281,7 +281,7 @@ static inline uint8_t mavlink_msg_mifare_ultralight_uid_get_byte6(const mavlink_
  * @param msg The message to decode
  * @param mifare_ultralight_uid C-struct to decode the message contents into
  */
-static inline void mavlink_msg_mifare_ultralight_uid_decode(const mavlink_message_t* msg, mavlink_mifare_ultralight_uid_t* mifare_ultralight_uid)
+static __inline void mavlink_msg_mifare_ultralight_uid_decode(const mavlink_message_t* msg, mavlink_mifare_ultralight_uid_t* mifare_ultralight_uid)
 {
 #if MAVLINK_NEED_BYTE_SWAP
 	mifare_ultralight_uid->address = mavlink_msg_mifare_ultralight_uid_get_address(msg);

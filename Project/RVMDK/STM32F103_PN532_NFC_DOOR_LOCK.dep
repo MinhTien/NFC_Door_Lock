@@ -1,5 +1,5 @@
 Dependencies for Project 'STM32F103_PN532', Target 'NFC_DOOR_LOCK': (DO NOT MODIFY !)
-F (..\global.c)(0x53A103FA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\global.o" --omf_browse ".\Obj\global.crf" --depend ".\Obj\global.d")
+F (..\global.c)(0x53A159D7)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\global.o" --omf_browse ".\Obj\global.crf" --depend ".\Obj\global.d")
 I (..\global.h)(0x53A019F2)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x52047597)
 I (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4DFDA4CC)
@@ -32,7 +32,7 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D7842BC)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h)(0x516E8FF6)
 I (C:\Keil\ARM\ARMCC\bin\..\include\string.h)(0x516E8FF6)
-F (..\main.c)(0x53A104C3)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\main.o" --omf_browse ".\Obj\main.crf" --depend ".\Obj\main.d")
+F (..\main.c)(0x53A159D7)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\main.o" --omf_browse ".\Obj\main.crf" --depend ".\Obj\main.d")
 I (..\main.h)(0x534EBE07)
 I (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4DFDA4CC)
 I (..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53A10295)
@@ -461,17 +461,18 @@ I (..\..\Libraries\mavlink\v1.0\mavlink_types.h)(0x5211C4D5)
 I (C:\Keil\ARM\ARMCC\bin\..\include\inttypes.h)(0x516E8FF6)
 I (..\global.h)(0x53A019F2)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x52047597)
-I (..\../Libraries/mavlink/v1.0/nfc/mavlink.h)(0x53A00D62)
-I (..\../Libraries/mavlink/v1.0/nfc/version.h)(0x53A00D62)
-I (..\../Libraries/mavlink/v1.0/nfc/nfc.h)(0x53A00D62)
+I (..\../Libraries/mavlink/v1.0/nfc/mavlink.h)(0x53A1524D)
+I (..\../Libraries/mavlink/v1.0/nfc/version.h)(0x53A1524D)
+I (..\../Libraries/mavlink/v1.0/nfc/nfc.h)(0x53A1524D)
 I (..\../Libraries/mavlink/v1.0/nfc/../protocol.h)(0x5211C4D5)
 I (C:\Keil\ARM\ARMCC\bin\..\include\string.h)(0x516E8FF6)
 I (..\../Libraries/mavlink/v1.0/nfc/../mavlink_helpers.h)(0x53A046A0)
 I (..\../Libraries/mavlink/v1.0/nfc/../checksum.h)(0x5211C4D5)
 I (..\../Libraries/mavlink/v1.0/nfc/../common/common.h)(0x53A0F4DF)
 I (..\../Libraries/mavlink/v1.0/nfc/../common/./mavlink_msg_heartbeat.h)(0x5211C4D5)
-I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_general_msg.h)(0x53A017CA)
-I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_classic_uid.h)(0x53A017CA)
-I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_ultralight_uid.h)(0x53A017CA)
-I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_lock_control.h)(0x53A017CA)
-I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_lock_status.h)(0x53A017CA)
+I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_general_msg.h)(0x53A15429)
+I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_classic_uid.h)(0x53A15429)
+I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_ultralight_uid.h)(0x53A15429)
+I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_lock_control.h)(0x53A15429)
+I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_lock_status.h)(0x53A15429)
+I (..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_set_address.h)(0x53A15429)

@@ -37,11 +37,10 @@ int main(void)
 	delay_ms(1);
 	USART_Configuration();
 	delay_ms(1);
-// 	printf("NFC DEMO...\r\n");
-	delay_ms(1);
- 	NVIC_Configuration();
 	TIM_Configuration();
  	delay_ms(1);
+	delay_ms(1);
+ 	NVIC_Configuration();
 
 	/** cau hinh bo system tich */
 	if (SysTick_Config(SystemCoreClock/10))
@@ -52,10 +51,8 @@ int main(void)
 	
 	begin();
 	versiondata = getFirmwareVersion();
-// 	printf("Data version %d\r\n", versiondata);
 	
 	if(!versiondata) {
-//  printf("Didn't find PN53x board\r\n");
     while (1)
 		{
 			beep_Buzzer(20, 20, 2);

@@ -29,7 +29,7 @@ typedef struct __mavlink_set_address_t
  * @param address board address
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static inline uint16_t mavlink_msg_set_address_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
+static __inline uint16_t mavlink_msg_set_address_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
 						       uint16_t address)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
@@ -57,7 +57,7 @@ static inline uint16_t mavlink_msg_set_address_pack(uint8_t system_id, uint8_t c
  * @param address board address
  * @return length of the message in bytes (excluding serial stream start sign)
  */
-static inline uint16_t mavlink_msg_set_address_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
+static __inline uint16_t mavlink_msg_set_address_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
 							   mavlink_message_t* msg,
 						           uint16_t address)
 {
@@ -85,7 +85,7 @@ static inline uint16_t mavlink_msg_set_address_pack_chan(uint8_t system_id, uint
  * @param msg The MAVLink message to compress the data into
  * @param set_address C-struct to read the message contents from
  */
-static inline uint16_t mavlink_msg_set_address_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_set_address_t* set_address)
+static __inline uint16_t mavlink_msg_set_address_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_set_address_t* set_address)
 {
 	return mavlink_msg_set_address_pack(system_id, component_id, msg, set_address->address);
 }
@@ -98,7 +98,7 @@ static inline uint16_t mavlink_msg_set_address_encode(uint8_t system_id, uint8_t
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_set_address_send(mavlink_channel_t chan, uint16_t address)
+static __inline void mavlink_msg_set_address_send(mavlink_channel_t chan, uint16_t address)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
 	char buf[2];
@@ -123,7 +123,7 @@ static inline void mavlink_msg_set_address_send(mavlink_channel_t chan, uint16_t
  *
  * @return board address
  */
-static inline uint16_t mavlink_msg_set_address_get_address(const mavlink_message_t* msg)
+static __inline uint16_t mavlink_msg_set_address_get_address(const mavlink_message_t* msg)
 {
 	return _MAV_RETURN_uint16_t(msg,  0);
 }
@@ -134,7 +134,7 @@ static inline uint16_t mavlink_msg_set_address_get_address(const mavlink_message
  * @param msg The message to decode
  * @param set_address C-struct to decode the message contents into
  */
-static inline void mavlink_msg_set_address_decode(const mavlink_message_t* msg, mavlink_set_address_t* set_address)
+static __inline void mavlink_msg_set_address_decode(const mavlink_message_t* msg, mavlink_set_address_t* set_address)
 {
 #if MAVLINK_NEED_BYTE_SWAP
 	set_address->address = mavlink_msg_set_address_get_address(msg);
