@@ -1,4 +1,3 @@
-
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "global.h"
@@ -12,6 +11,11 @@ extern uint8_t success;
 extern uint8_t uidLength;   
 extern uint8_t uid[];
 extern gMav_t gMav;
+extern uint16_t VirtAddVarTab[];
+extern uint16_t boardAddress;
+extern uint16_t address;
+extern uint8_t lockStatus;
+extern uint8_t lockControl;
 
 /* Private function prototypes -----------------------------------------------*/
 uint8_t keys[]={0xFF,0xFF,0xFF,0xFF,0xFF,0xFF};
@@ -21,10 +25,10 @@ uint8_t block[16];
 
 int main(void)
 {
-  uint8_t keya[6] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
-  uint8_t data_1[16];
-	uint8_t data_2[32];
-	uint16_t loopCount=0;
+  uint8_t keya[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+//  uint8_t data_1[16];
+// 	uint8_t data_2[32];
+// 	uint16_t loopCount=0;
 	uint32_t versiondata=0;
 
 	gMav.sendType=gMAV_SEND_MSG;
@@ -55,15 +59,16 @@ int main(void)
 	if(!versiondata) {
     while (1)
 		{
-			beep_Buzzer(20, 20, 2);
+			BlinkingLed(LED_RED, 10, 10, 2);
 		}
   }
-	Led(Bit_SET); // Led ON
+	LedCmd(LED_GREEN, Bit_SET); // Led ON
 //   configure board to read RFID tags and cards
   SAMConfig();
 // 	 printf("Waiting for an ISO14443A Card ...\r\n");
+	Lock();
 	
-	while (1)
+	while(1)
 	{		
 		if(timerStick)
 		{

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "string.h"
+#include "eeprom.h"
 	
 uint8_t timerStick=0;
 uint8_t success=0;
@@ -12,6 +13,11 @@ uint8_t mav_tx_buffer[MAV_TX_BUFF_SIZE];
 uint8_t mav_rx_buffer[MAV_RX_BUFF_SIZE];
 uint8_t mav_rx_tmp[MAV_RX_BUFF_SIZE];
 gMav_t gMav;
+uint16_t VirtAddVarTab[NumbOfVar] = {0x01};
+uint16_t boardAddress=1;
+uint16_t address=0;
+uint8_t lockStatus=0;
+uint8_t lockControl=0;
 
 PUTCHAR_PROTOTYPE
 {
@@ -148,33 +154,37 @@ void GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Pin = RELAY_A_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
-	GPIO_Init(RELAY_A_PORT, &GPIO_InitStructure);
-	
+	GPIO_Init(RELAY_A_PORT, &GPIO_InitStructure);	
 	GPIO_ResetBits(RELAY_A_PORT, RELAY_A_PIN); 
 	
-	/* PA.2 for Relay A control */
+	/* PA.2 for Relay B control */
 	GPIO_InitStructure.GPIO_Pin = RELAY_B_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
-	GPIO_Init(RELAY_B_PORT, &GPIO_InitStructure);
-	
+	GPIO_Init(RELAY_B_PORT, &GPIO_InitStructure);	
 	GPIO_ResetBits(RELAY_B_PORT, RELAY_B_PIN); 
 	
-	/* PA.0 for Buzzer */
+	/* PB.0 for Buzzer */
 	GPIO_InitStructure.GPIO_Pin = BUZZER_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
 	GPIO_Init(BUZZER_PORT, &GPIO_InitStructure);
+	BuzzerCmd(Bit_RESET);
 	
-	/* PA.1 for Led output */
-	GPIO_InitStructure.GPIO_Pin = LED_PIN;
+	/* PB.6 for Led Red output */
+	GPIO_InitStructure.GPIO_Pin = LED_RED_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
-	GPIO_Init(LED_PORT, &GPIO_InitStructure);
+	GPIO_Init(LED_RED_PORT, &GPIO_InitStructure);
+	LedCmd(LED_RED, Bit_RESET);
 	
-	Led(Bit_RESET); // OFF
-	Buzzer(Bit_RESET);
-	
+	/* PB.7 for Led Green output */
+	GPIO_InitStructure.GPIO_Pin = LED_GREEN_PIN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
+	GPIO_Init(LED_GREEN_PORT, &GPIO_InitStructure);
+	LedCmd(LED_GREEN, Bit_RESET);
+		
 	/* SPI NSS Pin */
 	GPIO_InitStructure.GPIO_Pin = SPI1_NSS_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
@@ -211,20 +221,6 @@ void GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
-}
-
-void beep_Buzzer(uint8_t ton, uint8_t toff, uint8_t times)
-{
-	unsigned char i;
-	for (i=1; i<=times;i++)
-	{
-// 		GPIO_ResetBits(BUZZER_PORT, BUZZER_PIN);
-		GPIO_SetBits(LED_PORT, LED_PIN);
-		delay_ms(ton);
-// 		GPIO_SetBits(BUZZER_PORT, BUZZER_PIN);
-		GPIO_ResetBits(LED_PORT, LED_PIN);
-		delay_ms(toff);
-	}
 }
 
 void USART_Configuration(void)
@@ -320,7 +316,7 @@ void TIM_Configuration(void)
 	TIM_OCInitTypeDef  TIM_OCInitStructure;
 	
 	/* Time base configuration */
-	TIM_TimeBaseStructure.TIM_Period = 2999;	  //TIM2 frequency is 400Hz
+	TIM_TimeBaseStructure.TIM_Period = 2999;	  //TIM2 frequency is 333Hz
 	TIM_TimeBaseStructure.TIM_Prescaler = 35;		 //clock for TIM2 is 1 MHz
 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
@@ -350,14 +346,65 @@ void EXTI_Configuration(void)
 //   EXTI_Init(&EXTI_InitStructure);
 }
 
-void Led(BitAction cmd)
+void LedCmd(uint8_t led, BitAction cmd)
 {
-	GPIO_WriteBit(LED_PORT, LED_PIN, (BitAction)cmd);
+	if(led==LED_RED)
+		GPIO_WriteBit(LED_RED_PORT, LED_RED_PIN, (BitAction)cmd);
+	else if(led==LED_GREEN)
+		GPIO_WriteBit(LED_GREEN_PORT, LED_GREEN_PIN, (BitAction)cmd);
 }
 
-void Buzzer(BitAction cmd)
+void BuzzerCmd(BitAction cmd)
 {
-	GPIO_WriteBit(BUZZER_PORT, BUZZER_PIN, (BitAction)(1-cmd));
+	GPIO_WriteBit(BUZZER_PORT, BUZZER_PIN, (BitAction)(cmd));
+}
+
+void BeepBuzzer(uint8_t ton, uint8_t toff, uint8_t times)
+{
+	unsigned char i;
+	for (i=1; i<=times;i++)
+	{
+		GPIO_SetBits(BUZZER_PORT, BUZZER_PIN);
+		delay_ms(ton);
+		GPIO_ResetBits(BUZZER_PORT, BUZZER_PIN);
+		delay_ms(toff);
+	}
+}
+
+void BlinkingLed(uint8_t led, uint8_t ton, uint8_t toff, uint8_t times)
+{
+	unsigned char i;
+	if(led==LED_RED)
+	{	
+		for (i=1; i<=times;i++)
+		{
+			GPIO_SetBits(LED_RED_PORT, LED_RED_PIN);
+			delay_ms(ton);
+			GPIO_ResetBits(LED_RED_PORT, LED_RED_PIN);
+			delay_ms(toff);
+		}
+	}
+	else if(led==LED_GREEN)
+	{
+		for (i=1; i<=times;i++)
+		{
+			GPIO_SetBits(LED_GREEN_PORT, LED_GREEN_PIN);
+			delay_ms(ton);
+			GPIO_ResetBits(LED_GREEN_PORT, LED_GREEN_PIN);
+			delay_ms(toff);
+		}
+	}
+}
+
+void Lock(void)
+{
+	TIM_SetCompare4(TIM2, 500);
+	delay_ms(20);
+}
+void Unlock(void)
+{
+	TIM_SetCompare4(TIM2, 2500);
+	delay_ms(20);
 }
 
 /*----------------------------------------------------------------------------

@@ -20,16 +20,21 @@
 #define MAV_TX_BUFF_SIZE 100
 
 #define BUZZER_PIN      GPIO_Pin_0
-#define BUZZER_PORT     GPIOA
+#define BUZZER_PORT     GPIOB
+
+#define LED_RED 0x01
+#define LED_RED_PIN      GPIO_Pin_6
+#define LED_RED_PORT     GPIOB
+
+#define LED_GREEN 0x02
+#define LED_GREEN_PIN      GPIO_Pin_7
+#define LED_GREEN_PORT     GPIOB
 
 #define RELAY_A_PIN      GPIO_Pin_1
 #define RELAY_A_PORT     GPIOA
 
 #define RELAY_B_PIN      GPIO_Pin_2
 #define RELAY_B_PORT     GPIOA
-
-#define LED_PIN      GPIO_Pin_9
-#define LED_PORT     GPIOB
 
 #define SPI1_NSS_PIN  	GPIO_Pin_4
 #define SPI1_NSS_PORT  	GPIOA
@@ -52,13 +57,16 @@ void delay_ms(uint32_t Nus);
 void NVIC_Configuration(void);
 void RCC_Configuration(void);
 void GPIO_Configuration(void);
-void beep_Buzzer(uint8_t ton, uint8_t toff, uint8_t times);
 void USART_Configuration(void);
 void SPI_Configuration(void);
 void EXTI_Configuration(void);
 void TIM_Configuration(void);
-void Led(BitAction cmd);
-void Buzzer(BitAction cmd);
+void LedCmd(uint8_t led, BitAction cmd);
+void BuzzerCmd(BitAction cmd);
+void BeepBuzzer(uint8_t ton, uint8_t toff, uint8_t times);
+void BlinkingLed(uint8_t led, uint8_t ton, uint8_t toff, uint8_t times);
+void Lock(void);
+void Unlock(void);
 
 enum gMAV_ENUM
 {

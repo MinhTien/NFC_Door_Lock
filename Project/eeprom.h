@@ -34,13 +34,8 @@
   #define PAGE_SIZE  (uint16_t)0x800  /* Page size = 2KByte */
 #endif
 
-// /* EEPROM start address in Flash */
-// #define EEPROM_START_ADDRESS    ((uint32_t)0x08010000) /* EEPROM emulation start address:
-//                                                   after 64KByte of used Flash memory */
-
 /* EEPROM start address in Flash */
-#define EEPROM_START_ADDRESS    ((uint32_t)0x0800F800) /* EEPROM emulation start address:
-                                                  after 64KByte of used Flash memory */
+#define EEPROM_START_ADDRESS    ((uint32_t)0x0803F000) /* EEPROM emulation start address: pages 62 & 63 of Flash memory */
 
 /* Pages 0 and 1 base and end addresses */
 #define PAGE0_BASE_ADDRESS      ((uint32_t)(EEPROM_START_ADDRESS + 0x000))
@@ -69,7 +64,7 @@
 #define PAGE_FULL               ((uint8_t)0x80)
 
 /* Variables' number */
-#define NumbOfVar               ((uint8_t)0x03)
+#define NumbOfVar               ((uint8_t)0x01)
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/

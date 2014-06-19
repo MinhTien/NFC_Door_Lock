@@ -32,3 +32,4 @@
 .\Obj\global.o: ..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\Obj\global.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\Obj\global.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\Obj\global.o: ..\eeprom.h

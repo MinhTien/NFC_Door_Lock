@@ -9,7 +9,12 @@ extern uint8_t mav_tx_buffer[];
 extern uint8_t mav_rx_buffer[];
 extern uint8_t mav_rx_tmp[];
 extern gMav_t gMav;
-	
+extern uint16_t VirtAddVarTab[];
+extern uint16_t boardAddress;
+extern uint16_t address;
+extern uint8_t lockStatus;
+extern uint8_t lockControl;
+
 mavlink_message_t msg;
 mavlink_status_t status;
 
@@ -35,19 +40,25 @@ void mavlinkSend(void)
 							{
 								if(uidLength == 4) // Mifare Classic Card
 								{
-									mavlink_msg_mifare_classic_uid_pack(SYSTEM_ID, MAV_COMP_ID_NFC_READER, &msg, uid[0], uid[1], uid[2], uid[3]);
+									mavlink_msg_mifare_classic_uid_pack(SYSTEM_ID, MAV_COMP_ID_NFC_READER, &msg, 1, uid[0], uid[1], uid[2], uid[3]);
 									len = mavlink_msg_to_send_buffer(buffer, &msg);
 								  _mavlink_send_uart(MAVLINK_COMM_0, buffer, len); 
 								}
 								else if(uidLength == 7) // Mifare Classic Card
 								{
-									mavlink_msg_mifare_ultralight_uid_pack(SYSTEM_ID, MAV_COMP_ID_NFC_READER, &msg, uid[0], uid[1], uid[2], uid[3], uid[4], uid[5], uid[6]);
+									mavlink_msg_mifare_ultralight_uid_pack(SYSTEM_ID, MAV_COMP_ID_NFC_READER, &msg, 1, uid[0], uid[1], uid[2], uid[3], uid[4], uid[5], uid[6]);
 									len = mavlink_msg_to_send_buffer(buffer, &msg);
 								  _mavlink_send_uart(MAVLINK_COMM_0, buffer, len); 
 								}
 							}
+							gMav.msgIndex=2;
+						  break;
+						case 2:
+							mavlink_msg_lock_status_pack(SYSTEM_ID, MAV_COMP_ID_NFC_READER, &msg, 1, lockStatus);
+							len = mavlink_msg_to_send_buffer(buffer, &msg);
+							_mavlink_send_uart(MAVLINK_COMM_0, buffer, len); 
 							gMav.msgIndex=0;
-						  break;		
+						break;
 						default:
 							break;
 	       }
@@ -66,6 +77,26 @@ void handle_mavlink_message(mavlink_channel_t chan, mavlink_message_t* msg)
 		}
 		case MAVLINK_MSG_ID_LOCK_CONTROL:
 		{
+			address = mavlink_msg_lock_control_get_address(msg);
+			lockControl = mavlink_msg_lock_control_get_command(msg);
+			
+			if(address == boardAddress)
+			{			
+				if(lockControl == LOCK)
+				{
+					Lock();
+					lockStatus = LOCKED;
+				}
+				else if(lockControl == UNLOCK)
+				{
+					Unlock();
+					lockStatus = UNLOCKED;
+					Lock();
+					lockStatus = LOCKED;
+				}
+				address=0;
+				lockControl=0;
+			}
 			break;
 		}			
 		default:
