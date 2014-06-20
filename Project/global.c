@@ -19,6 +19,7 @@ uint16_t address=0;
 uint8_t lockStatus=0;
 uint8_t lockControl=0;
 uint8_t finish=1;
+uint16_t timeOut=0;
 
 PUTCHAR_PROTOTYPE
 {

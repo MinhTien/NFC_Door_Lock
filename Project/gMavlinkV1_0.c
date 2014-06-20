@@ -15,6 +15,7 @@ extern uint16_t address;
 extern uint8_t lockStatus;
 extern uint8_t lockControl;
 extern uint8_t finish;
+extern uint16_t timeOut;
 
 mavlink_message_t msg;
 mavlink_status_t status;
@@ -59,7 +60,7 @@ void mavlinkSend(void)
 							len = mavlink_msg_to_send_buffer(buffer, &msg);
 							_mavlink_send_uart(MAVLINK_COMM_0, buffer, len); 
 							gMav.msgIndex=0;
-						  finish=1;
+						finish=1;
 						break;
 						default:
 							break;
@@ -79,25 +80,10 @@ void handle_mavlink_message(mavlink_channel_t chan, mavlink_message_t* msg)
 		}
 		case MAVLINK_MSG_ID_LOCK_CONTROL:
 		{
-			address = mavlink_msg_lock_control_get_address(msg);
-			lockControl = mavlink_msg_lock_control_get_command(msg);
-			
+			address = mavlink_msg_lock_control_get_address(msg);						
 			if(address == boardAddress)
-			{			
-				if(lockControl == LOCK)
-				{
-					Lock();					
-					lockStatus = LOCKED;
-				}
-				else if(lockControl == UNLOCK)
-				{
-					Unlock();
-					lockStatus = UNLOCKED;
-					Lock();
-					lockStatus = LOCKED;
-				}
-				address=0;
-				lockControl=0;
+			{	
+				lockControl = mavlink_msg_lock_control_get_command(msg);		
 			}
 			break;
 		}			
@@ -135,4 +121,24 @@ int mavlinkReceive(void)
 			}
 		}
 		return numc;
+}
+
+void LockControlProcess(void)
+{
+	if((timeOut>=40) && (lockStatus==UNLOCKED)) 
+		lockControl = LOCK;
+	
+	if((lockControl == LOCK) && (lockStatus=UNLOCKED)) // Lock command
+	{
+		Lock();	
+		lockStatus=LOCKED;
+		lockControl=0;			
+	}	
+	else if((lockControl ==UNLOCK) && (lockStatus=LOCKED))
+	{
+		Unlock();
+		lockStatus=UNLOCKED;
+		lockControl=0;
+		timeOut=0;
+	}	
 }

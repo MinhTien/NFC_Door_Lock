@@ -17,6 +17,7 @@ extern uint16_t address;
 extern uint8_t lockStatus;
 extern uint8_t lockControl;
 extern uint8_t finish;
+extern uint16_t timeOut;
 
 /* Private function prototypes -----------------------------------------------*/
 uint8_t keys[]={0xFF,0xFF,0xFF,0xFF,0xFF,0xFF};
@@ -81,10 +82,11 @@ int main(void)
 				success = readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &uidLength);
 				if(success) BeepBuzzer(10,10,1);
 				finish = 0;
-			}		
-			mavlinkSend();
-			mavlinkReceive();
-		}		
+			}	
+			mavlinkSend();			
+		}
+		mavlinkReceive();
+		LockControlProcess();		
 	}
 }
 

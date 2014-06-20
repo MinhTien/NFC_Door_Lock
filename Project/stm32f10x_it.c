@@ -26,6 +26,7 @@
 
 extern gMav_t gMav;
 extern uint8_t timerStick;
+extern uint16_t timeOut;
 
 /** @addtogroup STM32F10x_StdPeriph_Examples
   * @{
@@ -135,6 +136,7 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
 	timerStick=1;
+	timeOut++;
 }
 
 /******************************************************************************/
