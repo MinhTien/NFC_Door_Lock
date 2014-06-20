@@ -30,25 +30,31 @@
 #define LED_GREEN_PIN      GPIO_Pin_7
 #define LED_GREEN_PORT     GPIOB
 
+#define LED_COMMON_PIN     GPIO_Pin_8
+#define LED_COMMON_PORT    GPIOA
+
 #define RELAY_A_PIN      GPIO_Pin_1
 #define RELAY_A_PORT     GPIOA
 
 #define RELAY_B_PIN      GPIO_Pin_2
 #define RELAY_B_PORT     GPIOA
 
-#define SPI1_NSS_PIN  	GPIO_Pin_4
-#define SPI1_NSS_PORT  	GPIOA
+#define PWM_OUT_PIN			GPIO_Pin_3
+#define PWM_OUT_PORT		GPIOA
 
-#define SPI1_SCK_PIN  	GPIO_Pin_5
-#define SPI1_SCK_PORT  	GPIOA
+#define SPI_NSS_PIN  	GPIO_Pin_12
+#define SPI_NSS_PORT  	GPIOB
 
-#define SPI1_MISO_PIN  	GPIO_Pin_6
-#define SPI1_MISO_PORT  GPIOA
+#define SPI_SCK_PIN  	GPIO_Pin_13
+#define SPI_SCK_PORT  	GPIOB
 
-#define SPI1_MOSI_PIN  	GPIO_Pin_7
-#define SPI1_MOSI_PORT  GPIOA
+#define SPI_MISO_PIN  	GPIO_Pin_14
+#define SPI_MISO_PORT  GPIOB
 
-#define SPI1_PORT  GPIOA   
+#define SPI_MOSI_PIN  	GPIO_Pin_15
+#define SPI_MOSI_PORT  GPIOB
+
+#define SPI_PORT  GPIOB  
 
 #define _BV(x) 1<<x
 

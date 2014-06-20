@@ -7,3 +7,64 @@ E:\Sophic\NFC_Door_Clock\Firmware\STM32F103_PN532\Project\RVMDK\STM32F103_PN532.
 Project File Date:  06/18/2014
 
 <h2>Output:</h2>
+Build target 'NFC_DOOR_LOCK'
+compiling main.c...
+..\main.c(28): warning:  #177-D: variable "keya" was declared but never referenced
+linking...
+Program Size: Code=17036 RO-data=524 RW-data=112 ZI-data=3072  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 1 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+compiling main.c...
+..\main.c(28): warning:  #177-D: variable "keya" was declared but never referenced
+linking...
+Program Size: Code=17052 RO-data=524 RW-data=112 ZI-data=3072  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 1 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+compiling main.c...
+..\main.c(28): warning:  #177-D: variable "keya" was declared but never referenced
+linking...
+Program Size: Code=17060 RO-data=524 RW-data=112 ZI-data=3072  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 1 Warning(s).
+Build target 'NFC_DOOR_LOCK'
+compiling global.c...
+compiling main.c...
+..\main.c(29): warning:  #177-D: variable "keya" was declared but never referenced
+compiling gMavlinkV1_0.c...
+..\../Libraries/mavlink/v1.0/nfc/../common/./mavlink_msg_heartbeat.h(180): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/../common/./mavlink_msg_heartbeat.h(190): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/../common/./mavlink_msg_heartbeat.h(200): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/../common/./mavlink_msg_heartbeat.h(220): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/../common/./mavlink_msg_heartbeat.h(230): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_general_msg.h(226): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_general_msg.h(236): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_general_msg.h(246): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_general_msg.h(256): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_general_msg.h(266): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_general_msg.h(276): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_general_msg.h(286): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_general_msg.h(296): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_classic_uid.h(182): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_classic_uid.h(192): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_classic_uid.h(202): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_classic_uid.h(212): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_ultralight_uid.h(215): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_ultralight_uid.h(225): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_ultralight_uid.h(235): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_ultralight_uid.h(245): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_ultralight_uid.h(255): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_ultralight_uid.h(265): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_mifare_ultralight_uid.h(275): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_lock_control.h(149): warning:  #191-D: type qualifier is meaningless on cast type
+..\../Libraries/mavlink/v1.0/nfc/./mavlink_msg_lock_status.h(149): warning:  #191-D: type qualifier is meaningless on cast type
+..\gMavlinkV1_0.c(36): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+..\gMavlinkV1_0.c(46): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+..\gMavlinkV1_0.c(52): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+..\gMavlinkV1_0.c(60): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+linking...
+Program Size: Code=17080 RO-data=524 RW-data=116 ZI-data=3068  
+FromELF: creating hex file...
+".\Obj\STM32F103_PN532.axf" - 0 Error(s), 31 Warning(s).

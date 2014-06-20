@@ -1028,20 +1028,20 @@ void spiwritecommand(uint8_t* cmd, uint8_t cmdlen) {
 void spiwrite(uint8_t c) {
   int8_t i;
 //   digitalWrite(_clk, HIGH);
-	GPIO_WriteBit(SPI1_SCK_PORT, SPI1_SCK_PIN, (BitAction)1);
+	GPIO_WriteBit(SPI_SCK_PORT, SPI_SCK_PIN, (BitAction)1);
 
   for (i=0; i<8; i++) {
 //     digitalWrite(_clk, LOW);
-		GPIO_WriteBit(SPI1_SCK_PORT, SPI1_SCK_PIN, (BitAction)0);
+		GPIO_WriteBit(SPI_SCK_PORT, SPI_SCK_PIN, (BitAction)0);
     if (c & _BV(i)) {
 //       digitalWrite(_mosi, HIGH);
-			GPIO_WriteBit(SPI1_MOSI_PORT, SPI1_MOSI_PIN, (BitAction)1);
+			GPIO_WriteBit(SPI_MOSI_PORT, SPI_MOSI_PIN, (BitAction)1);
     } else {
 //       digitalWrite(_mosi, LOW);
-			GPIO_WriteBit(SPI1_MOSI_PORT, SPI1_MOSI_PIN, (BitAction)0);
+			GPIO_WriteBit(SPI_MOSI_PORT, SPI_MOSI_PIN, (BitAction)0);
     }    
 //     digitalWrite(_clk, HIGH);
-		GPIO_WriteBit(SPI1_SCK_PORT, SPI1_SCK_PIN, (BitAction)1);
+		GPIO_WriteBit(SPI_SCK_PORT, SPI_SCK_PIN, (BitAction)1);
   }
 }
 
@@ -1056,16 +1056,16 @@ uint8_t spiread(void) {
   int8_t i, x;
   x = 0;
 //   digitalWrite(_clk, HIGH);
-	GPIO_WriteBit(SPI1_SCK_PORT, SPI1_SCK_PIN, (BitAction)1);
+	GPIO_WriteBit(SPI_SCK_PORT, SPI_SCK_PIN, (BitAction)1);
 
   for (i=0; i<8; i++) {
-    if (GPIO_ReadInputDataBit(SPI1_MISO_PORT, SPI1_MISO_PIN)) {
+    if (GPIO_ReadInputDataBit(SPI_MISO_PORT, SPI_MISO_PIN)) {
       x |= _BV(i);
     }
 //     digitalWrite(_clk, LOW);
-		GPIO_WriteBit(SPI1_SCK_PORT, SPI1_SCK_PIN, (BitAction)0);
+		GPIO_WriteBit(SPI_SCK_PORT, SPI_SCK_PIN, (BitAction)0);
 //     digitalWrite(_clk, HIGH);
-		GPIO_WriteBit(SPI1_SCK_PORT, SPI1_SCK_PIN, (BitAction)1);
+		GPIO_WriteBit(SPI_SCK_PORT, SPI_SCK_PIN, (BitAction)1);
   }
   return x;
 }
@@ -1073,12 +1073,12 @@ uint8_t spiread(void) {
 void chipSellect(void)
 {
 	delay_us(10);
-	GPIO_ResetBits(SPI1_NSS_PORT, SPI1_NSS_PIN);
+	GPIO_ResetBits(SPI_NSS_PORT, SPI_NSS_PIN);
 	delay_us(10);
 }
 void chipDeSellect(void)
 {
 	delay_us(10);
-	GPIO_SetBits(SPI1_NSS_PORT, SPI1_NSS_PIN);
+	GPIO_SetBits(SPI_NSS_PORT, SPI_NSS_PIN);
 	delay_us(10);
 }

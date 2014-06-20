@@ -14,6 +14,7 @@ extern uint16_t boardAddress;
 extern uint16_t address;
 extern uint8_t lockStatus;
 extern uint8_t lockControl;
+extern uint8_t finish;
 
 mavlink_message_t msg;
 mavlink_status_t status;
@@ -58,6 +59,7 @@ void mavlinkSend(void)
 							len = mavlink_msg_to_send_buffer(buffer, &msg);
 							_mavlink_send_uart(MAVLINK_COMM_0, buffer, len); 
 							gMav.msgIndex=0;
+						  finish=1;
 						break;
 						default:
 							break;
@@ -84,7 +86,7 @@ void handle_mavlink_message(mavlink_channel_t chan, mavlink_message_t* msg)
 			{			
 				if(lockControl == LOCK)
 				{
-					Lock();
+					Lock();					
 					lockStatus = LOCKED;
 				}
 				else if(lockControl == UNLOCK)

@@ -1,6 +1,6 @@
 Dependencies for Project 'STM32F103_PN532', Target 'NFC_DOOR_LOCK': (DO NOT MODIFY !)
-F (..\global.c)(0x53A2588D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\global.o" --omf_browse ".\Obj\global.crf" --depend ".\Obj\global.d")
-I (..\global.h)(0x53A2588D)
+F (..\global.c)(0x53A3BD23)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\global.o" --omf_browse ".\Obj\global.crf" --depend ".\Obj\global.d")
+I (..\global.h)(0x53A2CB39)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x52047597)
 I (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4DFDA4CC)
 I (..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53A10295)
@@ -33,7 +33,7 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D7842BC)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h)(0x516E8FF6)
 I (C:\Keil\ARM\ARMCC\bin\..\include\string.h)(0x516E8FF6)
 I (..\eeprom.h)(0x53A162B7)
-F (..\main.c)(0x53A25D31)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\main.o" --omf_browse ".\Obj\main.crf" --depend ".\Obj\main.d")
+F (..\main.c)(0x53A3BD23)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\main.o" --omf_browse ".\Obj\main.crf" --depend ".\Obj\main.d")
 I (..\main.h)(0x534EBE07)
 I (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4DFDA4CC)
 I (..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53A10295)
@@ -63,7 +63,7 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D7842BC)
-I (..\global.h)(0x53A2588D)
+I (..\global.h)(0x53A2CB39)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x52047597)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h)(0x516E8FF6)
 I (..\..\Libraries\Adafruit_PN532\Adafruit_PN532.h)(0x5389669D)
@@ -100,7 +100,7 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D7842BC)
-I (..\global.h)(0x53A2588D)
+I (..\global.h)(0x53A2CB39)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x52047597)
 F (..\eeprom.c)(0x4A77FEA0)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\eeprom.o" --omf_browse ".\Obj\eeprom.crf" --depend ".\Obj\eeprom.d")
 I (..\eeprom.h)(0x53A162B7)
@@ -425,10 +425,10 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D7842BC)
 F (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_md.s)(0x4D7843DA)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1" -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x --list ".\List\startup_stm32f10x_md.lst" --xref -o ".\Obj\startup_stm32f10x_md.o" --depend ".\Obj\startup_stm32f10x_md.d")
-F (..\..\Libraries\Adafruit_PN532\Adafruit_PN532.c)(0x53897FBA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\adafruit_pn532.o" --omf_browse ".\Obj\adafruit_pn532.crf" --depend ".\Obj\adafruit_pn532.d")
+F (..\..\Libraries\Adafruit_PN532\Adafruit_PN532.c)(0x53A2CBA5)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\adafruit_pn532.o" --omf_browse ".\Obj\adafruit_pn532.crf" --depend ".\Obj\adafruit_pn532.d")
 I (..\..\Libraries\Adafruit_PN532\Adafruit_PN532.h)(0x5389669D)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x516E8FF6)
-I (..\global.h)(0x53A2588D)
+I (..\global.h)(0x53A2CB39)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x52047597)
 I (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4DFDA4CC)
 I (..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53A10295)
@@ -458,7 +458,7 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D7842BC)
 I (C:\Keil\ARM\ARMCC\bin\..\include\string.h)(0x516E8FF6)
-F (..\gMavlinkV1_0.c)(0x53A25D31)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\gmavlinkv1_0.o" --omf_browse ".\Obj\gmavlinkv1_0.crf" --depend ".\Obj\gmavlinkv1_0.d")
+F (..\gMavlinkV1_0.c)(0x53A3BD23)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\ -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\Adafruit_PN532 -I..\..\Libraries\mavlink\v1.0 -I..\..\Libraries\mavlink\v1.0\common -I..\..\Libraries\mavlink\v1.0\nfc -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o ".\Obj\gmavlinkv1_0.o" --omf_browse ".\Obj\gmavlinkv1_0.crf" --depend ".\Obj\gmavlinkv1_0.d")
 I (..\gMavlinkV1_0.h)(0x53A258CC)
 I (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4DFDA4CC)
 I (..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x53A10295)
@@ -490,7 +490,7 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D7842BC)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D7842BC)
 I (..\..\Libraries\mavlink\v1.0\mavlink_types.h)(0x5211C4D5)
 I (C:\Keil\ARM\ARMCC\bin\..\include\inttypes.h)(0x516E8FF6)
-I (..\global.h)(0x53A2588D)
+I (..\global.h)(0x53A2CB39)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x52047597)
 I (..\../Libraries/mavlink/v1.0/nfc/mavlink.h)(0x53A1524D)
 I (..\../Libraries/mavlink/v1.0/nfc/version.h)(0x53A1524D)

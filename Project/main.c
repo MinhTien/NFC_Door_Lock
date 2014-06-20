@@ -16,6 +16,7 @@ extern uint16_t boardAddress;
 extern uint16_t address;
 extern uint8_t lockStatus;
 extern uint8_t lockControl;
+extern uint8_t finish;
 
 /* Private function prototypes -----------------------------------------------*/
 uint8_t keys[]={0xFF,0xFF,0xFF,0xFF,0xFF,0xFF};
@@ -47,12 +48,11 @@ int main(void)
  	NVIC_Configuration();
 
 	/** cau hinh bo system tich */
-	if (SysTick_Config(SystemCoreClock/10))
+	if (SysTick_Config(SystemCoreClock/20))
 	{
 		/* Capture error */ 
 		while (1);
 	}
-	
 	begin();
 	versiondata = getFirmwareVersion();
 	
@@ -62,7 +62,7 @@ int main(void)
 			BlinkingLed(LED_RED, 10, 10, 2);
 		}
   }
-	LedCmd(LED_GREEN, Bit_SET); // Led ON
+	LedCmd(LED_RED, Bit_SET); // Led ON
 //   configure board to read RFID tags and cards
   SAMConfig();
 // 	 printf("Waiting for an ISO14443A Card ...\r\n");
@@ -76,11 +76,15 @@ int main(void)
 			// Wait for an ISO14443A type cards (Mifare, etc.).  When one is found
 			// 'uid' will be populated with the UID, and uidLength will indicate
 			// if the uid is 4 bytes (Mifare Classic) or 7 bytes (Mifare Ultralight)
-			success = readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &uidLength);
-			
+			if(finish==1)
+			{
+				success = readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &uidLength);
+				if(success) BeepBuzzer(10,10,1);
+				finish = 0;
+			}		
 			mavlinkSend();
 			mavlinkReceive();
-		}					
+		}		
 	}
 }
 

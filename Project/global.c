@@ -18,6 +18,7 @@ uint16_t boardAddress=1;
 uint16_t address=0;
 uint8_t lockStatus=0;
 uint8_t lockControl=0;
+uint8_t finish=1;
 
 PUTCHAR_PROTOTYPE
 {
@@ -133,8 +134,8 @@ void RCC_Configuration(void)
 	    {}
 	}
 	
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB | RCC_APB2Periph_USART1 | RCC_APB2Periph_SPI1 | RCC_APB2Periph_AFIO, ENABLE);
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB | RCC_APB2Periph_USART1 | RCC_APB2Periph_AFIO, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2 | RCC_APB1Periph_SPI2, ENABLE);
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
 }
 
@@ -176,40 +177,46 @@ void GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
 	GPIO_Init(LED_RED_PORT, &GPIO_InitStructure);
-	LedCmd(LED_RED, Bit_RESET);
-	
+
 	/* PB.7 for Led Green output */
 	GPIO_InitStructure.GPIO_Pin = LED_GREEN_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
 	GPIO_Init(LED_GREEN_PORT, &GPIO_InitStructure);
-	LedCmd(LED_GREEN, Bit_RESET);
+	
+	/* PA.8 for Led Common Pin */
+	GPIO_InitStructure.GPIO_Pin = LED_COMMON_PIN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
+	GPIO_Init(LED_COMMON_PORT, &GPIO_InitStructure);
+  LedCmd(LED_RED, Bit_RESET);
+  LedCmd(LED_GREEN, Bit_RESET);
 		
 	/* SPI NSS Pin */
-	GPIO_InitStructure.GPIO_Pin = SPI1_NSS_PIN;
+	GPIO_InitStructure.GPIO_Pin = SPI_NSS_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
-	GPIO_Init(SPI1_PORT, &GPIO_InitStructure);
+	GPIO_Init(SPI_PORT, &GPIO_InitStructure);
 	
-	GPIO_SetBits(SPI1_NSS_PORT, SPI1_NSS_PIN); // desellect chip
+	GPIO_SetBits(SPI_NSS_PORT, SPI_NSS_PIN); // desellect chip
 	
 	/* PWM output Pin to control RC Servo Motor*/
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
+	GPIO_InitStructure.GPIO_Pin = PWM_OUT_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;	 
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	GPIO_Init(PWM_OUT_PORT, &GPIO_InitStructure);
 
 	/* SPI SCK, MOSI Pins */
-	GPIO_InitStructure.GPIO_Pin = SPI1_SCK_PIN | SPI1_MOSI_PIN;
+	GPIO_InitStructure.GPIO_Pin = SPI_SCK_PIN | SPI_MOSI_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	 
-	GPIO_Init(SPI1_PORT, &GPIO_InitStructure);
+	GPIO_Init(SPI_PORT, &GPIO_InitStructure);
 	
 	/* SPI MISO Pin */
-	GPIO_InitStructure.GPIO_Pin = SPI1_MISO_PIN;
+	GPIO_InitStructure.GPIO_Pin = SPI_MISO_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;	 
-	GPIO_Init(SPI1_PORT, &GPIO_InitStructure);
+	GPIO_Init(SPI_PORT, &GPIO_InitStructure);
 	
 	/* Configure PA9 for USART1 Tx as alternate function push-pull */
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
@@ -304,10 +311,10 @@ void SPI_Configuration(void)
   SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_64;
   SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
   SPI_InitStructure.SPI_CRCPolynomial = 7;
-	SPI_Init(SPI1, &SPI_InitStructure);
+	SPI_Init(SPI2, &SPI_InitStructure);
 	
-	/* Enable SPI1 */
-	SPI_Cmd(SPI1, ENABLE);
+	/* Enable SPI2 */
+	SPI_Cmd(SPI2, ENABLE);
 }
 
 void TIM_Configuration(void)
@@ -348,10 +355,27 @@ void EXTI_Configuration(void)
 
 void LedCmd(uint8_t led, BitAction cmd)
 {
-	if(led==LED_RED)
-		GPIO_WriteBit(LED_RED_PORT, LED_RED_PIN, (BitAction)cmd);
-	else if(led==LED_GREEN)
-		GPIO_WriteBit(LED_GREEN_PORT, LED_GREEN_PIN, (BitAction)cmd);
+	if(cmd==RESET) // Led Off
+	{
+		GPIO_WriteBit(LED_GREEN_PORT, LED_GREEN_PIN, (BitAction)0);
+		GPIO_WriteBit(LED_RED_PORT, LED_RED_PIN, (BitAction)0);
+		GPIO_WriteBit(LED_COMMON_PORT, LED_COMMON_PIN, (BitAction)0);
+	}
+	else // Led On
+	{
+		if(led==LED_RED) // Led RED on
+		{
+			GPIO_WriteBit(LED_GREEN_PORT, LED_GREEN_PIN, (BitAction)0);
+			GPIO_WriteBit(LED_RED_PORT, LED_RED_PIN, (BitAction)1);
+			GPIO_WriteBit(LED_COMMON_PORT, LED_COMMON_PIN, (BitAction)0);
+		}
+		else if(led==LED_GREEN) // Led GREEN On
+		{
+			GPIO_WriteBit(LED_GREEN_PORT, LED_GREEN_PIN, (BitAction)1);
+			GPIO_WriteBit(LED_RED_PORT, LED_RED_PIN, (BitAction)0);
+			GPIO_WriteBit(LED_COMMON_PORT, LED_COMMON_PIN, (BitAction)1);
+		}
+	}
 }
 
 void BuzzerCmd(BitAction cmd)
@@ -374,37 +398,41 @@ void BeepBuzzer(uint8_t ton, uint8_t toff, uint8_t times)
 void BlinkingLed(uint8_t led, uint8_t ton, uint8_t toff, uint8_t times)
 {
 	unsigned char i;
-	if(led==LED_RED)
-	{	
-		for (i=1; i<=times;i++)
-		{
-			GPIO_SetBits(LED_RED_PORT, LED_RED_PIN);
-			delay_ms(ton);
-			GPIO_ResetBits(LED_RED_PORT, LED_RED_PIN);
-			delay_ms(toff);
-		}
-	}
-	else if(led==LED_GREEN)
+	for (i=1; i<=times;i++)
 	{
-		for (i=1; i<=times;i++)
+		// on
+		if(led==LED_RED) // Led RED on
 		{
-			GPIO_SetBits(LED_GREEN_PORT, LED_GREEN_PIN);
-			delay_ms(ton);
-			GPIO_ResetBits(LED_GREEN_PORT, LED_GREEN_PIN);
-			delay_ms(toff);
+			GPIO_WriteBit(LED_GREEN_PORT, LED_GREEN_PIN, (BitAction)0);
+			GPIO_WriteBit(LED_RED_PORT, LED_RED_PIN, (BitAction)1);
+			GPIO_WriteBit(LED_COMMON_PORT, LED_COMMON_PIN, (BitAction)0);
 		}
+		else if(led==LED_GREEN) // Led GREEN On
+		{
+			GPIO_WriteBit(LED_GREEN_PORT, LED_GREEN_PIN, (BitAction)1);
+			GPIO_WriteBit(LED_RED_PORT, LED_RED_PIN, (BitAction)0);
+			GPIO_WriteBit(LED_COMMON_PORT, LED_COMMON_PIN, (BitAction)1);
+		}
+		delay_ms(ton);
+		// off
+		GPIO_WriteBit(LED_GREEN_PORT, LED_GREEN_PIN, (BitAction)0);
+		GPIO_WriteBit(LED_RED_PORT, LED_RED_PIN, (BitAction)0);
+		GPIO_WriteBit(LED_COMMON_PORT, LED_COMMON_PIN, (BitAction)0);
+		delay_ms(toff);
 	}
 }
 
 void Lock(void)
 {
 	TIM_SetCompare4(TIM2, 500);
-	delay_ms(20);
+	delay_ms(50);
+	LedCmd(LED_RED, Bit_SET);
 }
 void Unlock(void)
 {
 	TIM_SetCompare4(TIM2, 2500);
-	delay_ms(20);
+	delay_ms(50);
+	LedCmd(LED_GREEN, Bit_SET);
 }
 
 /*----------------------------------------------------------------------------
